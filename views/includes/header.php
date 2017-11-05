@@ -58,17 +58,17 @@
                   <a href="#">Cadastro Básico <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="cadastrobasico">
-                  <li><a href="#">Ambiente</a></li>
-                  <li><a href="#">Item</a></li>
-                  <li><a href="#">Material</a></li>
-                  <li><a href="#">Pintura</a></li>
-                  <li><a href="#">Cor</a></li>
-                  <li><a href="#">Estado</a></li>
-                  <li><a href="#">Tipo vistoria</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/ambiente/ambiente.php">Ambiente</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/item/item.php">Item</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/material/material.php">Material</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/pintura/pintura.php">Pintura</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/cor/cor.php">Cor</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/estado/estado.php">Estado</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/tipo-vistoria/tipo-vistoria.php">Tipo vistoria</a></li>
                 </ul>
           </ul>
         </div>
       </div>
     </div>
 
-    <main class="container">
+  

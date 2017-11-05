@@ -8,8 +8,5 @@ session_start();
 require_once ABSPATH . '/functions/global-functions.php';
 
 
-include(HEADER_TEMPLATE);
-include(FOOTER_TEMPLATE);
-
 // Carrega a aplicação
 

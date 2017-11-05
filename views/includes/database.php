@@ -26,7 +26,7 @@ function find( $table = null, $codigo = null ) {
 	$found = null;
 	try {
 	  if ($codigo) {
-	    $sql = "SELECT * FROM " . $table . " WHERE codigo = " . $codigo;
+	    $sql = "SELECT * FROM " . $table . " WHERE id_ambiente = " . $codigo;
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {
@@ -110,7 +110,7 @@ function update($table = null, $codigo = 0, $data = null) {
   $items = rtrim($items, ',');
   $sql  = "UPDATE " . $table;
   $sql .= " SET $items";
-  $sql .= " WHERE id=" . $codigo . ";";
+  $sql .= " WHERE id_ambiente=" . $codigo . ";";
   try {
     $database->query($sql);
     $_SESSION['message'] = 'Registro atualizado com sucesso.';
@@ -130,7 +130,7 @@ function remove( $table = null, $codigo = null ) {
 	
   try {
     if ($codigo) {
-      $sql = "DELETE FROM " . $table . " WHERE codigo = " . $codigo;
+      $sql = "DELETE FROM " . $table . " WHERE id_ambiente = " . $codigo;
       $result = $database->query($sql);
       if ($result = $database->query($sql)) {   	
         $_SESSION['message'] = "Registro Removido com Sucesso.";
