@@ -6,7 +6,3 @@ session_start();
 
 // Funções globais
 require_once ABSPATH . '/functions/global-functions.php';
-
-
-// Carrega a aplicação
-
