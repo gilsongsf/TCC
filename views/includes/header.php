@@ -48,12 +48,12 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Vistoria <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Agenda</a></li>
-            <li><a href="#">Imovel</a></li>
-            <li><a href="#">Locador</a></li>
-            <li><a href="#">Usuário</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li class="active"><a href="<?php echo BASEURL;?>models/vistoria/vistoria.php">Vistoria <span class="sr-only">(current)</span></a></li>
+            <li><a href="<?php echo BASEURL;?>models/agenda/agenda.php">Agenda</a></li>
+            <li><a href="<?php echo BASEURL;?>models/imovel/imovel.php">Imovel</a></li>
+            <li><a href="<?php echo BASEURL;?>models/locador/locador.php">Locador</a></li>
+            <li><a href="<?php echo BASEURL;?>models/usuario/usuario.php">Usuário</a></li>
+            <li><a href="<?php echo BASEURL;?>models/perfil/perfil.php">Perfil</a></li>
             <li data-toggle="collapse" data-target="#cadastrobasico" class="collapsed">
                   <a href="#">Cadastro Básico <span class="arrow"></span></a>
                 </li>  

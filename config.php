@@ -4,7 +4,7 @@ define('DB_NAME', 'vistoria');
 /** Usuário do banco de dados MySQL */
 define('DB_USER', 'root');
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', '1qA2wS3eD');
+define('DB_PASSWORD', '');
 /** nome do host do MySQL */
 define('DB_HOST', 'localhost');
 
