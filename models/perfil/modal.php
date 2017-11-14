@@ -25,145 +25,101 @@ require_once('../../config.php');
                       <tbody>
                         <tr>
                           <td><label>Vistoria</label></td>
-                          <td><label><input name="vistoria_visualizar" type="checkbox" value="vistoria_visualizar">Visualizar</label></td>                         
-                          <td><label><input name="vistoria_inserir" type="checkbox" value="vistoria_inserir">Incluir</label></td>                       
-                          <td><label><input name="vistoria_editar" type="checkbox" value="vistoria_editar">Editar</label></td>
-                          <td><label><input name="vistoria_excluir" type="checkbox" value="vistoria_excluir">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="vistoria_visualizar">Visualizar</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="vistoria_inserir">Incluir</label></td>                     
+                          <td><label><input name="permissoes[]" type="checkbox" value="vistoria_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="vistoria_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Agenda</label></td>
-                          <td><label><input name="agenda_visualizar" type="checkbox" value="1">Visualizar</label></td>                    
-                          <td><label><input name="agenda_inserir" type="checkbox" value="1">Incluir</label></td>                   
-                          <td><label><input name="agenda_editar" type="checkbox" value="1">Editar</label></td>
-                          <td><label><input name="agenda_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="agenda_visualizar">Visualizar</label></td>                      
+                          <td><label><input name="permissoes[]" type="checkbox" value="agenda_inserir">Incluir</label></td>                      
+                          <td><label><input name="permissoes[]" type="checkbox" value="agenda_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="agenda_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Indisponibilidade</label></td>
-                          <td><label><input name="indisponibilidade_visualizar" type="checkbox" value="1">Visualizar</label></td>                  
-                          <td><label><input name="indisponibilidade_inserir" type="checkbox" value="1">Incluir</label></td>                     
-                          <td><label><input name="indisponibilidade_editar" type="checkbox" value="1">Editar</label></td>
-                          <td><label><input name="indisponibilidade_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="indisponibilidade_visualizar">Visualizar</label></td>                         
+                          <td><label><input name="permissoes[]" type="checkbox" value="indisponibilidade_inserir">Incluir</label></td>                        
+                          <td><label><input name="permissoes[]" type="checkbox" value="indisponibilidade_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="indisponibilidade_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Imovel</label></td>
-                          <input name="imovel_visualizar" type="hidden" value="0">
-                          <td><label><input name="imovel_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="imovel_inserir" type="hidden" value="0">                         
-                          <td><label><input name="imovel_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="imovel_editar" type="hidden" value="0">                        
-                          <td><label><input name="imovel_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="imovel_excluir" type="hidden" value="0">
-                          <td><label><input name="imovel_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="imovel_visualizar">Visualizar</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="imovel_inserir">Incluir</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="imovel_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="imovel_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Locador</label></td>
-                          <input name="locador_visualizar" type="hidden" value="0">
-                          <td><label><input name="locador_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="locador_inserir" type="hidden" value="0">                         
-                          <td><label><input name="locador_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="locador_editar" type="hidden" value="0">                        
-                          <td><label><input name="locador_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="locador_excluir" type="hidden" value="0">
-                          <td><label><input name="locador_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="locador_visualizar">Visualizar</label></td>                          
+                          <td><label><input name="permissoes[]" type="checkbox" value="locador_inserir">Incluir</label></td>                        
+                          <td><label><input name="permissoes[]" type="checkbox" value="locador_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="locador_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Usuário</label></td>
-                          <input name="usuario_visualizar" type="hidden" value="0">
-                          <td><label><input name="usuario_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="usuario_inserir" type="hidden" value="0">                         
-                          <td><label><input name="usuario_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="usuario_editar" type="hidden" value="0">                        
-                          <td><label><input name="usuario_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="usuario_excluir" type="hidden" value="0">
-                          <td><label><input name="usuario_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="usuario_visualizar">Visualizar</label></td>                        
+                          <td><label><input name="permissoes[]" type="checkbox" value="usuario_inserir">Incluir</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="usuario_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="usuario_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Perfil</label></td>
-                          <input name="perfil_visualizar" type="hidden" value="0">
-                          <td><label><input name="perfil_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="perfil_inserir" type="hidden" value="0">                         
-                          <td><label><input name="perfil_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="perfil_editar" type="hidden" value="0">                        
-                          <td><label><input name="perfil_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="perfil_excluir" type="hidden" value="0">
-                          <td><label><input name="perfil_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="perfil_visualizar">Visualizar</label></td>                        
+                          <td><label><input name="permissoes[]" type="checkbox" value="perfil_inserir">Incluir</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="perfil_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="perfil_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Ambiente</label></td>
-                          <input name="ambiente_visualizar" type="hidden" value="0">
-                          <td><label><input name="ambiente_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="ambiente_inserir" type="hidden" value="0">                         
-                          <td><label><input name="ambiente_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="ambiente_editar" type="hidden" value="0">                        
-                          <td><label><input name="ambiente_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="ambiente_excluir" type="hidden" value="0">
-                          <td><label><input name="ambiente_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="ambiente_visualizar">Visualizar</label></td>                      
+                          <td><label><input name="permissoes[]" type="checkbox" value="ambiente_inserir">Incluir</label></td>                        
+                          <td><label><input name="permissoes[]" type="checkbox" value="ambiente_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="ambiente_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Item</label></td>
-                          <input name="item_visualizar" type="hidden" value="0">
-                          <td><label><input name="item_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="item_inserir" type="hidden" value="0">                         
-                          <td><label><input name="item_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="item_editar" type="hidden" value="0">                        
-                          <td><label><input name="item_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="item_excluir" type="hidden" value="0">
-                          <td><label><input name="item_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="item_visualizar">Visualizar</label></td>                    
+                          <td><label><input name="permissoes[]" type="checkbox" value="item_inserir">Incluir</label></td>                         
+                          <td><label><input name="permissoes[]" type="checkbox" value="item_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="item_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Material</label></td>
-                          <input name="material_visualizar" type="hidden" value="0">
-                          <td><label><input name="material_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="material_inserir" type="hidden" value="0">                         
-                          <td><label><input name="material_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="material_editar" type="hidden" value="0">                        
-                          <td><label><input name="material_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="material_excluir" type="hidden" value="0">
-                          <td><label><input name="material_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="material_visualizar">Visualizar</label></td>                      
+                          <td><label><input name="permissoes[]" type="checkbox" value="material_inserir">Incluir</label></td>                         
+                          <td><label><input name="permissoes[]" type="checkbox" value="material_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="material_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Pintura</label></td>
-                          <input name="pintura_visualizar" type="hidden" value="0">
-                          <td><label><input name="pintura_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="pintura_inserir" type="hidden" value="0">                         
-                          <td><label><input name="pintura_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="pintura_editar" type="hidden" value="0">                        
-                          <td><label><input name="pintura_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="pintura_excluir" type="hidden" value="0">
-                          <td><label><input name="pintura_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="pintura_visualizar">Visualizar</label></td>                        
+                          <td><label><input name="permissoes[]" type="checkbox" value="pintura_inserir">Incluir</label></td>                         
+                          <td><label><input name="permissoes[]" type="checkbox" value="pintura_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="pintura_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Cor</label></td>
-                          <input name="cor_visualizar" type="hidden" value="0">
-                          <td><label><input name="cor_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="cor_inserir" type="hidden" value="0">                         
-                          <td><label><input name="cor_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="cor_editar" type="hidden" value="0">                        
-                          <td><label><input name="cor_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="cor_excluir" type="hidden" value="0">
-                          <td><label><input name="cor_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="cor_visualizar">Visualizar</label></td>                         
+                          <td><label><input name="permissoes[]" type="checkbox" value="cor_inserir">Incluir</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="cor_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="cor_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Estado</label></td>
-                          <input name="estado_visualizar" type="hidden" value="0">
-                          <td><label><input name="estado_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="estado_inserir" type="hidden" value="0">                         
-                          <td><label><input name="estado_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="estado_editar" type="hidden" value="0">                        
-                          <td><label><input name="estado_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="estado_excluir" type="hidden" value="0">
-                          <td><label><input name="estado_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="estado_visualizar">Visualizar</label></td>                         
+                          <td><label><input name="permissoes[]" type="checkbox" value="estado_inserir">Incluir</label></td>                       
+                          <td><label><input name="permissoes[]" type="checkbox" value="estado_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="estado_excluir">Excluir</label></td>
                         </tr>
                         <tr>
                           <td><label>Tipo de Vistoria</label></td>
-                          <input name="tipovistoria_visualizar" type="hidden" value="0">
-                          <td><label><input name="tipovistoria_visualizar" type="checkbox" value="1">Visualizar</label></td> 
-                          <input name="tipovistoria_inserir" type="hidden" value="0">                         
-                          <td><label><input name="tipovistoria_inserir" type="checkbox" value="1">Incluir</label></td>  
-                          <input name="tipovistoria_editar" type="hidden" value="0">                        
-                          <td><label><input name="tipovistoria_editar" type="checkbox" value="1">Editar</label></td>
-                          <input name="tipovistoria_excluir" type="hidden" value="0">
-                          <td><label><input name="tipovistoria_excluir" type="checkbox" value="1">Excluir</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="tipovistoria_visualizar">Visualizar</label></td>                   
+                          <td><label><input name="permissoes[]" type="checkbox" value="tipovistoria_inserir">Incluir</label></td>                      
+                          <td><label><input name="permissoes[]" type="checkbox" value="tipovistoria_editar">Editar</label></td>
+                          <td><label><input name="permissoes[]" type="checkbox" value="tipovistoria_excluir">Excluir</label></td>
                         </tr>
                       </tbody>               
 
