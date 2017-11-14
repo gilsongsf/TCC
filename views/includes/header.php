@@ -64,7 +64,7 @@
                   <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/pintura/pintura.php">Pintura</a></li>
                   <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/cor/cor.php">Cor</a></li>
                   <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/estado/estado.php">Estado</a></li>
-                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/tipo-vistoria/tipo-vistoria.php">Tipo vistoria</a></li>
+                  <li><a href="<?php echo BASEURL; ?>models/cadastro-basico/tipovistoria/tipovistoria.php">Tipo vistoria</a></li>
                 </ul>
           </ul>
         </div>

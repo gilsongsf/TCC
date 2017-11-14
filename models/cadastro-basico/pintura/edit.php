@@ -1,17 +1,17 @@
 <?php
 	require_once("../../../config.php");
-	require_once("../../../classes/class-cor.php");
+	require_once("../../../classes/class-pintura.php");
 			
 		
-			$cor = new Cor();
+			$pintura = new Pintura();
 
 			$id = $_POST['id'];
-			$editCor  = $_POST['descricao'];
+			$editPintura  = $_POST['descricao'];
 
-			$cor->setCor($editCor);
+			$pintura->setPintura($editPintura);
 
-			if($cor->update($id)){
-				header('Location: cor.php');
+			if($pintura->update($id)){
+				header('Location: pintura.php');
 			}
 
 ?>

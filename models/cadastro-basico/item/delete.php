@@ -1,16 +1,16 @@
 <?php
 	require_once("../../../config.php");
-	require_once("../../../classes/class-cor.php");
+	require_once("../../../classes/class-item.php");
 			
 		
-			$cor = new Cor();
+			$item = new Item();
 
 			$id  = $_POST['id'];
 
 			$id = (int)$_GET['id'];
 
-			if($cor->delete($id)){
-				header('Location: cor.php');
+			if($item->delete($id)){
+				header('Location: item.php');
 			}
 
 	

@@ -1,16 +1,16 @@
 <?php
 	require_once("../../../config.php");
-	require_once("../../../classes/class-cor.php");
+	require_once("../../../classes/class-pintura.php");
 			
 		
-			$cor = new Cor();
+			$pintura = new Pintura();
 
 			$id  = $_POST['id'];
 
 			$id = (int)$_GET['id'];
 
-			if($cor->delete($id)){
-				header('Location: cor.php');
+			if($pintura->delete($id)){
+				header('Location: pintura.php');
 			}
 
 	

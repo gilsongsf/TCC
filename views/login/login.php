@@ -1,3 +1,10 @@
+<?php 
+
+require_once('../../config.php');
+
+?>
+
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,9 +24,9 @@
     <div class="container">
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">Vistoria</h2>
+        <h2 class="form-signin-heading">Vistoria</h2></br>
         <label for="inputEmail" class="sr-only">Usuário</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Usuário" required autofocus>
+        <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
         <div class="checkbox">

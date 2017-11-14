@@ -2,6 +2,19 @@
 	require_once('../../../config.php');
 	include('modal.php'); 
 	include(HEADER_TEMPLATE);
+
+	$ambiente = new ambientes();
+
+	$permissao = new perfil();
+
+		foreach($permissao->selectPermissao() as $key => $value):
+
+			$permissaoEditar = $value->ambiente_editar;
+			$permissaoExcluir = $value->ambiente_excluir;
+			$permissaoInserir = $value->ambiente_inserir;
+			$permissaoVisualizar = $value->ambiente_visualizar;
+
+		endforeach;
 ?>
 
 
@@ -19,7 +32,6 @@
 </header>
 
 <hr>
-	<?php $ambiente = new ambientes()?>
 
 <table class="table table-hover">
 <thead>
@@ -32,8 +44,22 @@
 	<tr>
 		<td><?php echo $value->ambiente; ?></td>
 		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-id="<?php echo $value->id ?>" data-descricao="<?php echo $value->ambiente ?>"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
+
+			<?php if ($permissaoEditar = 1){
+				echo '<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-id="'.$value->id.'" data-descricao="'.$value->ambiente.'"><i class="fa fa-pencil"></i> Editar</a>';
+			}
+			else {
+				echo '<a href="#" class="btn btn-sm btn-warning disabled" role="button" data-toggle="modal" data-target="#modal-edit" data-id="'.$value->id.'" data-descricao="'.$value->ambiente.'"><i class="fa fa-pencil"></i> Editar</a>';
+			}
+				?>
+
+			<?php if ($permissaoExcluir = 1){
+				echo '<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="'.$value->id.'"><i class="fa fa-trash"></i> Excluir</a>';
+			}
+			else {
+				echo '<a href="#" class="btn btn-sm btn-danger disabled" role="button" data-toggle="modal" data-target="#modal-delete" data-id="'.$value->id.'"><i class="fa fa-trash"></i> Excluir</a>';
+			}
+				?>
 		</td>
 	</tr>
 <?php endforeach; ?>

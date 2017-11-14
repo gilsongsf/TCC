@@ -9,14 +9,14 @@ require_once('../../../config.php');
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title text-center" id="ModalLabel">COR | CADASTRO</h4>
+              <h4 class="modal-title text-center" id="ModalLabel">PINTURA | CADASTRO</h4>
             </div>
             <div class="modal-body">
               <form method="POST" action="add.php">
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="recipient-name" class="control-label">Descrição:</label>
-                    <input name="cor" type="text" class="form-control" required>
+                    <input name="pintura" type="text" class="form-control" required>
                   </div>
                 </div>
                 <div class="row">
@@ -58,7 +58,7 @@ require_once('../../../config.php');
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title text-center" id="ModalLabel">COR | EDITAR</h4>
+              <h4 class="modal-title text-center" id="ModalLabel">PINTURA | EDITAR</h4>
             </div>
             <div class="modal-body">
               <form method="POST" action="edit.php">

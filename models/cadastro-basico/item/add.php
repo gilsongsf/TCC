@@ -1,17 +1,17 @@
 <?php
 	require_once("../../../config.php");
-	require_once("../../../classes/class-cor.php");
+	require_once("../../../classes/class-item.php");
 			
 		
-			$cor = new Cor();
+			$item = new Item();
 
-			$addCor  = $_POST['cor'];
+			$addItem  = $_POST['item'];
 
-			$cor->setCor($addCor);
+			$item->setItem($addItem);
 
 			# Insert
-			if($cor->insert()){
-				header('Location: cor.php');
+			if($item->insert()){
+				header('Location: item.php');
 			}
 
 	

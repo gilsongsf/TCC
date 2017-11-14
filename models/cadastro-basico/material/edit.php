@@ -1,17 +1,17 @@
 <?php
 	require_once("../../../config.php");
-	require_once("../../../classes/class-cor.php");
+	require_once("../../../classes/class-material.php");
 			
 		
-			$cor = new Cor();
+			$material = new Material();
 
 			$id = $_POST['id'];
-			$editCor  = $_POST['descricao'];
+			$editMaterial  = $_POST['descricao'];
 
-			$cor->setCor($editCor);
+			$material->setMaterial($editMaterial);
 
-			if($cor->update($id)){
-				header('Location: cor.php');
+			if($material->update($id)){
+				header('Location: material.php');
 			}
 
 ?>

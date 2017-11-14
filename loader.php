@@ -8,4 +8,3 @@ session_start();
 require_once ABSPATH . '/functions/global-functions.php';
 
 $login = new login();
-$login->index();
