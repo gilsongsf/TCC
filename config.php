@@ -15,6 +15,10 @@ if ( !defined('ABSPATH') )
 /** caminho no server para o sistema **/
 if ( !defined('BASEURL') )
 	define('BASEURL', '/TCC2017/vistoria/');
+
+/** caminho tela login **/
+if (!defined('LOGINURL'))
+	define('LOGINURL', BASEURL.'views/login/login.php');
 	
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )
@@ -24,4 +28,4 @@ if ( !defined('DBAPI') )
 define('HEADER_TEMPLATE', ABSPATH . 'views/includes/header.php');
 define('FOOTER_TEMPLATE', ABSPATH . 'views/includes/footer.php');
 
-require_once ABSPATH . '/loader.php';
+require_once ABSPATH . '/functions/global-functions.php';

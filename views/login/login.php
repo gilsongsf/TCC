@@ -2,6 +2,7 @@
 
 require_once('../../config.php');
 
+
 ?>
 
 
@@ -23,12 +24,12 @@ require_once('../../config.php');
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" method="POST" action="autenticacao.php">
         <h2 class="form-signin-heading">Vistoria</h2></br>
-        <label for="inputEmail" class="sr-only">Usuário</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <label for="email" class="sr-only">Usuário</label>
+        <input name="email" type="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
+        <label for="senha" class="sr-only">Senha</label>
+        <input name="senha" type="password" id="senha" class="form-control" placeholder="Senha" required>
         <div class="checkbox">
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>

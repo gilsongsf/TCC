@@ -3,9 +3,13 @@
 require_once('config.php');
 require_once('classes/class-perfil.php');
 
-$permissoes = new perfil();
+$permissao = new perfil();
 
-$teste = $permissoes->selectPermissoes();
+$perfil = 'administrador';
+
+$teste = $permissao->selectPermissoes($perfil);
+
+$teste = unserialize($teste);
 
 var_dump($teste);
 

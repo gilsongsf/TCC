@@ -29,10 +29,13 @@
 </thead>
 <tbody> 
 <?php foreach($perfil->selectAllOrderBy() as $key => $value): ?>
+	<?php $permissoes = unserialize($value->permissoes);
+	$teste = implode("|", $permissoes);
+	 ?>
 	<tr>
 		<td><?php echo $value->perfil; ?></td>
 		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-id="<?php echo $value->id ?>" data-descricao="<?php echo $value->perfil ?>"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit-perfil" data-id="<?php echo $value->id ?>" data-editperfil="<?php echo $value->perfil ?>" data-editpermissoes="<?php echo $teste ?>"><i class="fa fa-pencil"></i> Editar</a>
 			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
 		</td>
 	</tr>

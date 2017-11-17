@@ -1,6 +1,3 @@
-/**
- * Passa o Id do Ambiente para o Modal, e atualiza o link para exclusão
- */
 $('#modal-delete').on('show.bs.modal', function (event) {
   
   var button = $(event.relatedTarget);
@@ -18,5 +15,32 @@ $('#modal-edit').on('show.bs.modal', function (event) {
 				var modal = $(this)
 				modal.find('#id').val(recipient)
 				modal.find('#descricao').val(recipientdescricao)
+})
+
+$('#modal-edit-usuario').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) 
+				var recipient = button.data('id') 
+				var recipienteditnome = button.data('editnome')
+				var recipientemail = button.data('editemail')
+				var recipientperfil = button.data('editperfil')
+				
+				var modal = $(this)
+				modal.find('#id').val(recipient)
+				modal.find('#editnome').val(recipienteditnome)
+				modal.find('#editemail').val(recipientemail)
+				modal.find('#editperfil').val(recipientperfil)
+})
+
+$('#modal-edit-perfil').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) 
+				var recipient = button.data('id') 
+				var recipienteditperfil = button.data('editperfil')
+				var recipienteditpermissoes = button.data('editpermissoes')
+
+				var modal = $(this)
+				modal.find('#id').val(recipient)
+				modal.find('#editperfil').val(recipienteditperfil)
+				
+   				//document.getElementById("vistoria_visualizar").checked = true;
 })
 

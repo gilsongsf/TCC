@@ -19,10 +19,9 @@ class Perfil extends Crud{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (perfil,permissoes) VALUES (:perfil,:permissoes)";
+		$sql  = "INSERT INTO $this->table (perfil,permissoes) VALUES (:perfil,'$this->permissoes')";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':perfil', $this->perfil);
-		$stmt->bindParam(':permissoes', $this->permissoes);
 		return $stmt->execute(); 
 
 	}
@@ -44,11 +43,12 @@ class Perfil extends Crud{
 		return $stmt->fetchAll();
 	}
 
-	public function selectPermissoes(){
-		$sql  = "SELECT permissoes FROM $this->table WHERE perfil = 'administrador'";
+	public function selectPermissoes($perfil){
+		$sql  = "SELECT permissoes FROM $this->table WHERE perfil = :perfil";
 		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':perfil', $perfil);
 		$stmt->execute();
-		return $stmt->fetchAll();
-	} 
-
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		return $result['permissoes'];
+	}
 }

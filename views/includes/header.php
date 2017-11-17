@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Vistoria</title>
     <meta name="description" content="">
@@ -32,12 +32,11 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">          
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Opções <span class="caret"></span>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="<?php echo BASEURL; ?>">Alterar Senha</a></li>
-                    <li><a href="<?php echo BASEURL; ?>">Logoff</a></li>
+                    <li><a href="<?php echo BASEURL; ?>views/login/login.php">Logoff</a></li>
                 </ul>
             </li>
           </ul>

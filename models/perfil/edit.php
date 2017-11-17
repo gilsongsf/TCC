@@ -4,14 +4,10 @@
 			
 		
 			$perfil = new perfil();
-
 			$id = $_POST['id'];
 			$editperfil  = $_POST['perfil'];
-
 			$perfil->setPerfil($editperfil);
-
 			if($perfil->update($id)){
 				header('Location: perfil.php');
 			}
-
 ?>

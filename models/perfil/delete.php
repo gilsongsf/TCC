@@ -4,14 +4,10 @@
 			
 		
 			$perfil = new perfil();
-
 			$id  = $_POST['id'];
-
 			$id = (int)$_GET['id'];
-
 			if($perfil->delete($id)){
 				header('Location: perfil.php');
 			}
-
 	
 ?>

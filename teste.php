@@ -1,23 +1,36 @@
+<!DOCTYPE html>
 <html>
-<head runat="server">
-    <title></title>
-</head>
+<body>
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function (e) {
-        $("#divConteudo").hide();
+Checkbox: <input type="checkbox" id="myCheck">
 
-        $("#btnMostrarEsconder").click(function (e) {
-            $("#divConteudo").toggle();
-        });
-    });
+
+<script>
+
+Array.prototype.inArray = function (value)
+{
+ // Returns true if the passed value is found in the
+ // array. Returns false if it is not.
+ var i;
+ for (i=0; i < this.length; i++)
+ {
+ if (this[i] == value)
+ {
+ return true;
+ }
+ }
+ return false;
+};
+
+
+var testArr= ["Shrek","Feona","Donkey"];
+//use of inArray
+if(testArr.inArray("Donkey"))
+   document.getElementById("myCheck").checked = true;
+else
+   document.getElementById("myCheck").checked = false;
+
 </script>
 
-<body>
-    <div id="divConteudo">
-        Conteudo
-    </div>
-    <button id="btnMostrarEsconder" type="button">Mostrar e Esconder</button>
 </body>
 </html>
