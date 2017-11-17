@@ -31,6 +31,23 @@ $('#modal-edit-usuario').on('show.bs.modal', function (event) {
 				modal.find('#editperfil').val(recipientperfil)
 })
 
+$('#modal-edit-locador').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) 
+				var recipient = button.data('id') 
+				var recipientlocadornome = button.data('locadornome')
+				var recipientlocadoremail = button.data('locadoremail')
+				var recipientlocadortelefone = button.data('locadortelefone')
+				var recipientlocadorcpfcnpj = button.data('locadorcpfcnpj')
+				
+				var modal = $(this)
+				modal.find('#id').val(recipient)
+				modal.find('#locadornome').val(recipientlocadornome)
+				modal.find('#locadoremail').val(recipientlocadoremail)
+				modal.find('#locadortelefone').val(recipientlocadortelefone)
+				modal.find('#locadorcpfcnpj').val(recipientlocadorcpfcnpj)
+
+})
+
 $('#modal-edit-perfil').on('show.bs.modal', function (event) {
 				var button = $(event.relatedTarget) 
 				var recipient = button.data('id') 

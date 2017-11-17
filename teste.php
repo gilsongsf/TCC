@@ -1,36 +1,17 @@
-<!DOCTYPE html>
-<html>
-<body>
+<input name="cpfcnpj" type="text" class="form-control" id="cpfcnpj">
 
-Checkbox: <input type="checkbox" id="myCheck">
+<script type="text/javascript">
+    $("#cpfcnpj").keydown(function(){
+    try {
+        $("#cpfcnpj").unmask();
+    } catch (e) {}
 
+    var tamanho = $("#cpfcnpj").val().length;
 
-<script>
-
-Array.prototype.inArray = function (value)
-{
- // Returns true if the passed value is found in the
- // array. Returns false if it is not.
- var i;
- for (i=0; i < this.length; i++)
- {
- if (this[i] == value)
- {
- return true;
- }
- }
- return false;
-};
-
-
-var testArr= ["Shrek","Feona","Donkey"];
-//use of inArray
-if(testArr.inArray("Donkey"))
-   document.getElementById("myCheck").checked = true;
-else
-   document.getElementById("myCheck").checked = false;
-
+    if(tamanho < 11){
+        $("#cpfcnpj").mask("999.999.999-99");
+    } else {
+        $("#cpfcnpj").mask("99.999.999/9999-99");
+    }                   
+});
 </script>
-
-</body>
-</html>

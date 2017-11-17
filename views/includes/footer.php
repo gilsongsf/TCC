@@ -4,5 +4,10 @@
     <script src="<?php echo BASEURL; ?>/views/js/bootstrap.min.js"></script>
 
    	<script src="<?php echo BASEURL; ?>/views/js/main.js"></script>
+
+   	<script src="<?php echo BASEURL; ?>/views/js/jquery.js" type="text/javascript"></script>
+   	
+	<script src="<?php echo BASEURL; ?>/views/js/jquery.maskedinput.js" type="text/javascript"></script>
+
 </body>
 </html>
