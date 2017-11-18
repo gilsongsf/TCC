@@ -9,5 +9,7 @@
    	
 	<script src="<?php echo BASEURL; ?>/views/js/jquery.maskedinput.js" type="text/javascript"></script>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>  
+
 </body>
 </html>

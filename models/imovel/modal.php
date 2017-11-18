@@ -71,10 +71,14 @@ require_once('../../config.php');
                     <label for="recipient-name" class="control-label">Tipo de Imovel:</label>
                     <input name="tipoimovel" type="text" class="form-control" required>
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="recipient-name" class="control-label">CEP:</label>
                     <input name="cep" type="text" class="form-control" required>
-                  </div>                  
+                  </div>
+                  <div class="form-group col-md-8">
+                    <label for="recipient-name" class="control-label">Locador:</label>
+                    <input name="id_locador" type="text" class="typeahead form-control">
+                  </div>
                 </div>
                 <div class="row">
                   <div class="modal-footer">

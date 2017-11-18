@@ -48,4 +48,6 @@ class Locador extends Crud{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
+
+	
 }

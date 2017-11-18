@@ -48,6 +48,17 @@ $('#modal-edit-locador').on('show.bs.modal', function (event) {
 
 })
 
+$('input.typeahead').typeahead({
+	    source:  function (query, process) {
+        return $.get('/ajaxpro.php', { query: query }, function (data) {
+        		console.log(data);
+        		data = $.parseJSON(data);
+	            return process(data);
+	        });
+	    }
+	});
+
+
 $('#modal-edit-perfil').on('show.bs.modal', function (event) {
 				var button = $(event.relatedTarget) 
 				var recipient = button.data('id') 
