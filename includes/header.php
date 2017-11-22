@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap-datetimepicker.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="<?php echo BASEURL; ?>css/sidebar.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>  
+
+    <script type="text/javascript">
+  $(document).ready(function() {
+
+    $( "#locador" ).autocomplete({
+        minLength: 1,
+        source: 'livesearch.php',
+        focus: function( event, ui ) {
+            $( "#locador" ).val( ui.item.label );
+            return false;
+        },
+        select: function( event, ui ) {
+            $( "#locador" ).val( ui.item.label );
+            $( "#id_locador" ).val( ui.item.value );
+
+            return false;
+        }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( "<li>" )
+        .append( "<div>" + item.label + "</div>" )
+        .appendTo( ul );
+    };
+  });
+
+</script>
     
     <style>
         body {

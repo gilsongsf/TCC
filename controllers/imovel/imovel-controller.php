@@ -4,9 +4,9 @@
 
 	class ImovelController extends Imovel{
 
-		public function addImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep){			
+		public function addImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador){			
 				$imovel = new imovel();
-				$imovel->setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep);
+				$imovel->setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador);
 				
 				if($imovel->insert()){
 					header('Location:'.VIEWS.'imovel/imovel-view.php');
@@ -42,6 +42,16 @@
 			return $imovel->selectUFAll($value);
 		}
 
+		public function selectImovel($id){
+				$imovel = new imovel();
+				return $imovel->select($id);
+		}
+
+		public function selectLocadorImovel($id){
+			$imovel = new imovel();
+			return $imovel->selectLocadorImovel($id);
+		}
+
 
 	}
 
@@ -53,7 +63,7 @@
 
 		if(!empty($_POST['endereco'])){
 			$imovel = new imovelController();
-			$imovel->addimovel($_POST['endereco'],$_POST['numero'],$_POST['complemento'],$_POST['bairro'],$_POST['cidade'],$_POST['uf'],$_POST['tipoimovel'],$_POST['cep']);
+			$imovel->addimovel($_POST['endereco'],$_POST['numero'],$_POST['complemento'],$_POST['bairro'],$_POST['cidade'],$_POST['uf'],$_POST['tipoimovel'],$_POST['cep'],$_POST['id_locador']);
 		}
 
 		if(!empty($_POST['deleteid'])){

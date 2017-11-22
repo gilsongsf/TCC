@@ -6,9 +6,9 @@ require_once(__ROOT__.'/Crud.php');
 class Imovel extends Crud{
 	
 	protected $table = 'imovel';
-	private $endereco, $numero, $complemento, $bairro, $cidade, $uf, $cep, $tipoimovel;
+	private $endereco, $numero, $complemento, $bairro, $cidade, $uf, $cep, $tipoimovel, $id_locador;
 
-	public function setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep){
+	public function setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador){
 		$this->endereco = $endereco;
 		$this->numero = $numero;
 		$this->complemento = $complemento;
@@ -16,7 +16,8 @@ class Imovel extends Crud{
 		$this->cidade = $cidade;
 		$this->uf = $uf;
 		$this->tipoimovel = $tipoimovel;
-		$this->cep = $cep;		
+		$this->cep = $cep;
+		$this->id_locador = $id_locador;		
 	}
 
 	public function getImovel(){
@@ -25,7 +26,7 @@ class Imovel extends Crud{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (endereco, numero, complemento, bairro, cidade, uf, cep, tipoimovel) VALUES (:endereco, :numero, :complemento, :bairro, :cidade, :uf, :cep, :tipoimovel)";
+		$sql  = "INSERT INTO $this->table (endereco, numero, complemento, bairro, cidade, uf, cep, tipoimovel, id_locador) VALUES (:endereco, :numero, :complemento, :bairro, :cidade, :uf, :cep, :tipoimovel, :id_locador)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':endereco', $this->endereco);
 		$stmt->bindParam(':numero', $this->numero);
@@ -35,6 +36,7 @@ class Imovel extends Crud{
 		$stmt->bindParam(':uf', $this->uf);
 		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':tipoimovel', $this->tipoimovel);
+		$stmt->bindParam(':id_locador', $this->id_locador);
 		return $stmt->execute(); 
 
 	}
@@ -60,5 +62,13 @@ class Imovel extends Crud{
 		$stmt = DB::prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
+	}
+
+	public function selectLocadorImovel($id){
+		$sql = "SELECT locador.`id`, locador.`nome` from locador inner join imovel on imovel.`id_locador` = locador.`id` where imovel.`id` = ($id) order by locador.`nome`";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+
 	}
 }

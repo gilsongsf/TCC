@@ -1,12 +1,12 @@
 <?php
-	
-	include_once ("../../classes/DB.php");
+	require_once('../../config.php');
+	require_once('../../models/database.php');
 
-		$sql  = "SELECT id, nome FROM locador WHERE nome LIKE '%".$_GET['query']."%'"; 
+		$search = $_GET['term'];
+
+		$sql  = "SELECT id, nome FROM locador WHERE nome LIKE '%$search%' "; 
 		$stmt = DB::prepare($sql);
 		$stmt->execute();
-
-		$json = [];
 	
 		while($row = $result = $stmt->fetch(PDO::FETCH_ASSOC)){
 	     	$json[] = array(

@@ -50,16 +50,19 @@ require_once('../../config.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+      <form method="POST" action="<?php echo CONTROLLERS; ?>/locador/locador-controller.php">
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
       </div>
       <div class="modal-body">
         Deseja realmente excluir este item?
       </div>
+      <input name="deleteid" type="hidden" id="deleteid" value="">
       <div class="modal-footer">
-        <a id="confirm" class="btn btn-primary" href="#">Sim</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
         <a id="cancel" class="btn btn-default" data-dismiss="modal">N&atilde;o</a>
       </div>
+      </form>
     </div>
   </div>
 </div> <!-- /.modal -->
