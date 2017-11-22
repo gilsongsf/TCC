@@ -16,16 +16,28 @@ if ( !defined('ABSPATH') )
 if ( !defined('BASEURL') )
 	define('BASEURL', '/TCC2017/vistoria/');
 
+/** caminho para os models **/
+if ( !defined('MODELS') )
+	define('MODELS', '/TCC2017/vistoria/models/');
+
+/** caminho para os models **/
+if ( !defined('CONTROLLERS') )
+	define('CONTROLLERS', '/TCC2017/vistoria/controllers/');
+
+/** caminho para os models **/
+if ( !defined('VIEWS') )
+	define('VIEWS', '/TCC2017/vistoria/views/');
+
 /** caminho tela login **/
 if (!defined('LOGINURL'))
-	define('LOGINURL', BASEURL.'views/login/login.php');
+	define('LOGINURL', BASEURL.'views/login.php');
 	
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )
-	define('DBAPI', ABSPATH . 'views/includes/database.php');
+	define('DBAPI', ABSPATH . 'database/database.php');
 
 /** caminhos dos templates de header e footer **/
-define('HEADER_TEMPLATE', ABSPATH . 'views/includes/header.php');
-define('FOOTER_TEMPLATE', ABSPATH . 'views/includes/footer.php');
+define('HEADER_TEMPLATE', ABSPATH . 'includes/header.php');
+define('FOOTER_TEMPLATE', ABSPATH . 'includes/footer.php');
 
-require_once ABSPATH . '/functions/global-functions.php';
+//require_once ABSPATH . '/functions/global-functions.php';

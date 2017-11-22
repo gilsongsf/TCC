@@ -1,45 +1,38 @@
 <?php
-	require_once('../../../config.php');
-	include('modal.php'); 
-	include(HEADER_TEMPLATE);
-?>
 
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/../Crud.php'); 
 
-<div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Cor</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert"><i class="fa fa-plus"></i> Novo</a>
-	    	<a class="btn btn-default" href="cor.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
+class Cor extends Crud{
+	
+	protected $table = 'cor';
+	private $cor;
 
-<hr>
-	<?php $cor = new Cor()?>
+	public function setCor($cor){
+		$this->cor = $cor;
+	}
 
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>Cor</th>
-	</tr>
-</thead>
-<tbody> 
-<?php foreach($cor->selectAllOrderBy() as $key => $value): ?>
-	<tr>
-		<td><?php echo $value->cor; ?></td>
-		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-id="<?php echo $value->id ?>" data-descricao="<?php echo $value->cor ?>"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
-		</td>
-	</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
+	public function getCor(){
+		return $this->cor;
+	}
 
-<?php include(FOOTER_TEMPLATE);?>
+	public function insert(){
 
+		$sql  = "INSERT INTO $this->table (cor) VALUES (:cor)";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':cor', $this->cor);
+		return $stmt->execute(); 
+
+	}
+
+	public function update($id){
+
+		$sql  = "UPDATE $this->table SET cor = :cor WHERE id = :id";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':cor', $this->cor);
+		$stmt->bindParam(':id', $id);
+		return $stmt->execute();
+
+	}
+
+}

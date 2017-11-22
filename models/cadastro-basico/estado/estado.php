@@ -1,45 +1,38 @@
 <?php
-	require_once('../../../config.php');
-	include('modal.php'); 
-	include(HEADER_TEMPLATE);
-?>
 
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/../Crud.php'); 
 
-<div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Estado</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert"><i class="fa fa-plus"></i> Novo</a>
-	    	<a class="btn btn-default" href="estado.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
+class Estado extends Crud{
+	
+	protected $table = 'estado';
+	private $estado;
 
-<hr>
-	<?php $estado = new Estado()?>
+	public function setestado($estado){
+		$this->estado = $estado;
+	}
 
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>Estado</th>
-	</tr>
-</thead>
-<tbody> 
-<?php foreach($estado->selectAllOrderBy() as $key => $value): ?>
-	<tr>
-		<td><?php echo $value->estado; ?></td>
-		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-id="<?php echo $value->id ?>" data-descricao="<?php echo $value->estado ?>"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
-		</td>
-	</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
+	public function getestado(){
+		return $this->estado;
+	}
 
-<?php include(FOOTER_TEMPLATE);?>
+	public function insert(){
 
+		$sql  = "INSERT INTO $this->table (estado) VALUES (:estado)";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':estado', $this->estado);
+		return $stmt->execute(); 
+
+	}
+
+	public function update($id){
+
+		$sql  = "UPDATE $this->table SET estado = :estado WHERE id = :id";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':estado', $this->estado);
+		$stmt->bindParam(':id', $id);
+		return $stmt->execute();
+
+	}
+
+}

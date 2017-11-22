@@ -1,0 +1,54 @@
+<?php
+	require_once('../../config.php');
+	require_once('../../controllers/imovel/imovel-controller.php');
+	include('imovel-modal.php'); 
+	include(HEADER_TEMPLATE);
+?>
+
+
+<div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<header>
+	<div class="row">
+		<div class="col-sm-6">
+			<h2>Imovel</h2>
+		</div>
+		<div class="col-sm-6 text-right h2">
+	    	<a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert"><i class="fa fa-plus"></i> Novo</a>
+	    	<a class="btn btn-default" href="imovel-view.php"><i class="fa fa-refresh"></i> Atualizar</a>
+	    </div>
+	</div>
+</header>
+
+<hr>
+	<?php $imovel = new ImovelController();?>
+
+<table class="table table-hover">
+<thead>
+	<tr>
+		<th>Endereço</th>
+	</tr>
+</thead>
+<tbody> 
+<?php foreach($imovel->viewImovelAll() as $key => $value): ?>
+	<tr>
+		<td><?php echo $value->endereco.", ".$value->numero;
+				  if ($value->complemento == NULL){
+				  	echo ", ";
+				  }else
+				  {
+				  	echo ", ".$value->complemento.", ";
+				  }
+
+				  echo $value->bairro." - ".$value->cidade." - ".$value->uf; ?></td>
+		<td class="actions text-right">
+			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit-imovel" data-id="<?php echo $value->id ?>" data-endereco="<?php echo $value->endereco ?>" data-numero="<?php echo $value->numero ?>" data-complemento="<?php echo $value->complemento ?>" data-bairro="<?php echo $value->bairro ?>" data-cidade="<?php echo $value->cidade ?>" data-uf="<?php echo $value->uf ?>" data-tipoimovel="<?php echo $value->tipoimovel ?>" data-cep="<?php echo $value->cep ?>"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-deleteid="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
+		</td>
+	</tr>
+<?php endforeach; ?>
+</tbody>
+</table>
+</div>
+
+<?php include(FOOTER_TEMPLATE);?>
+

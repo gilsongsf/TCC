@@ -1,45 +1,38 @@
 <?php
-	require_once('../../../config.php');
-	include('modal.php'); 
-	include(HEADER_TEMPLATE);
-?>
 
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/../Crud.php'); 
 
-<div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Pintura</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert"><i class="fa fa-plus"></i> Novo</a>
-	    	<a class="btn btn-default" href="pintura.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
+class Pintura extends Crud{
+	
+	protected $table = 'pintura';
+	private $pintura;
 
-<hr>
-	<?php $pintura = new Pintura()?>
+	public function setpintura($pintura){
+		$this->pintura = $pintura;
+	}
 
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>Pintura</th>
-	</tr>
-</thead>
-<tbody> 
-<?php foreach($pintura->selectAllOrderBy() as $key => $value): ?>
-	<tr>
-		<td><?php echo $value->pintura; ?></td>
-		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-id="<?php echo $value->id ?>" data-descricao="<?php echo $value->pintura ?>"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
-		</td>
-	</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
+	public function getpintura(){
+		return $this->pintura;
+	}
 
-<?php include(FOOTER_TEMPLATE);?>
+	public function insert(){
 
+		$sql  = "INSERT INTO $this->table (pintura) VALUES (:pintura)";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':pintura', $this->pintura);
+		return $stmt->execute(); 
+
+	}
+
+	public function update($id){
+
+		$sql  = "UPDATE $this->table SET pintura = :pintura WHERE id = :id";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':pintura', $this->pintura);
+		$stmt->bindParam(':id', $id);
+		return $stmt->execute();
+
+	}
+
+}

@@ -1,53 +1,64 @@
 <?php
-	require_once('../../config.php');
-	include('modal.php'); 
-	include(HEADER_TEMPLATE);
-?>
 
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/Crud.php'); 
 
-<div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Imovel</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert"><i class="fa fa-plus"></i> Novo</a>
-	    	<a class="btn btn-default" href="imovel.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
+class Imovel extends Crud{
+	
+	protected $table = 'imovel';
+	private $endereco, $numero, $complemento, $bairro, $cidade, $uf, $cep, $tipoimovel;
 
-<hr>
-	<?php $imovel = new Imovel()?>
+	public function setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep){
+		$this->endereco = $endereco;
+		$this->numero = $numero;
+		$this->complemento = $complemento;
+		$this->bairro = $bairro;
+		$this->cidade = $cidade;
+		$this->uf = $uf;
+		$this->tipoimovel = $tipoimovel;
+		$this->cep = $cep;		
+	}
 
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>Endereço</th>
-	</tr>
-</thead>
-<tbody> 
-<?php foreach($imovel->selectAllOrderBy() as $key => $value): ?>
-	<tr>
-		<td><?php echo $value->endereco.", ".$value->numero;
-				  if ($value->complemento == NULL){
-				  	echo ", ";
-				  }else
-				  {
-				  	echo ", ".$value->complemento.", ";
-				  }
+	public function getImovel(){
+		return $this->endereco;
+	}
 
-				  echo $value->bairro." - ".$value->cidade." - ".$value->uf; ?></td>
-		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit-imovel" data-id="<?php echo $value->id ?>" data-locadornome="<?php echo $value->endereco ?>"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
-		</td>
-	</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
+	public function insert(){
 
-<?php include(FOOTER_TEMPLATE);?>
+		$sql  = "INSERT INTO $this->table (endereco, numero, complemento, bairro, cidade, uf, cep, tipoimovel) VALUES (:endereco, :numero, :complemento, :bairro, :cidade, :uf, :cep, :tipoimovel)";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':endereco', $this->endereco);
+		$stmt->bindParam(':numero', $this->numero);
+		$stmt->bindParam(':complemento', $this->complemento);
+		$stmt->bindParam(':bairro', $this->bairro);
+		$stmt->bindParam(':cidade', $this->cidade);
+		$stmt->bindParam(':uf', $this->uf);
+		$stmt->bindParam(':cep', $this->cep);
+		$stmt->bindParam(':tipoimovel', $this->tipoimovel);
+		return $stmt->execute(); 
 
+	}
+
+	public function update($id){
+
+		$sql  = "UPDATE $this->table SET endereco = :endereco , numero = :numero , complemento = :complemento , bairro = :bairro , cidade = :cidade , uf = :uf , cep = :cep , tipoimovel = :tipoimovel WHERE id = :id";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':endereco', $this->endereco);
+		$stmt->bindParam(':numero', $this->numero);
+		$stmt->bindParam(':complemento', $this->complemento);
+		$stmt->bindParam(':bairro', $this->bairro);
+		$stmt->bindParam(':cidade', $this->cidade);
+		$stmt->bindParam(':uf', $this->uf);
+		$stmt->bindParam(':cep', $this->cep);
+		$stmt->bindParam(':tipoimovel', $this->tipoimovel);
+		$stmt->bindParam(':id', $id);
+		return $stmt->execute();
+	}
+
+	public function selectUFAll($value){
+		$sql  = "SELECT * FROM UF ORDER BY ($value)" ;
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll();
+	}
+}

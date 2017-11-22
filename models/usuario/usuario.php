@@ -1,49 +1,70 @@
 <?php
-	require_once('../../config.php');
-	include('modal.php'); 
-	include(HEADER_TEMPLATE);
-?>
 
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/Crud.php'); 
 
-<div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Usuário</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert"><i class="fa fa-plus"></i> Novo</a>
-	    	<a class="btn btn-default" href="usuario.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
+class Usuario extends Crud{
+	
+	protected $table = 'usuario';
+	public $nome, $email, $perfil, $senha;
 
-<hr>
-	<?php $usuario = new Usuario()?>
+	public function setNome($nome){
+		$this->nome = $nome;
+	}
 
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>Usuario</th>
-		<th>E-mail</th>
-		<th>Perfil</th>
-	</tr>
-</thead>
-<tbody> 
-<?php foreach($usuario->selectAllOrderBy() as $key => $value): ?>
-	<tr>
-		<td><?php echo $value->nome; ?></td>
-		<td><?php echo $value->email; ?></td>
-		<td><?php echo $value->perfil; ?></td>
-		<td class="actions text-right">
-			<a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit-usuario" data-id="<?php echo $value->id ?>" data-editnome="<?php echo $value->nome ?>" data-editemail="<?php echo $value->email ?>" data-editperfil="<?php echo $value->perfil ?>"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="<?php echo $value->id ?>"><i class="fa fa-trash"></i> Excluir</a>	
-		</td>
-	</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
+	public function setEmail($email){
+		$this->email = $email;
+	}
 
-<?php include(FOOTER_TEMPLATE);?>
+	public function setPerfil($perfil){
+		$this->perfil = $perfil;
+	}
 
+	public function setSenha($senha){
+		$this->senha = $senha;
+	}
+
+	public function getUsuario(){
+		return $this->nome;
+	}
+
+	public function getEmail(){
+		return $this->email;
+	}
+
+	public function getSenha(){
+		return $this->senha;
+	}
+
+	public function insert(){
+
+		$sql  = "INSERT INTO $this->table (nome, email, senha, perfil) VALUES (:nome,:email,:senha,:perfil)";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':nome', $this->nome);
+		$stmt->bindParam(':email', $this->email);
+		$stmt->bindParam(':senha', $this->senha);
+		$stmt->bindParam(':perfil', $this->perfil);
+		return $stmt->execute(); 
+
+	}
+
+	public function update($id){
+
+		$sql  = "UPDATE $this->table SET nome = :nome , email = :email , perfil = :perfil WHERE id = :id";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':nome', $this->nome);
+		$stmt->bindParam(':email', $this->email);
+		$stmt->bindParam(':perfil', $this->perfil);
+		$stmt->bindParam(':id', $id);
+		return $stmt->execute();
+
+	}
+
+  	public static function logout() {
+		if(isset($_SESSION['logado'])):
+			unset($_SESSION['logado']);
+			session_destroy();
+			header("Location:<?php echo BASEURL; ?>views/login/login.php");
+		endif;
+	}
+}
