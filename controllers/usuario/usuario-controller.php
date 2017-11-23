@@ -6,14 +6,33 @@
 		class usuarioController extends usuario{
 
 			public function addusuario($nome,$email,$senha,$perfil){
-				$usuario = new usuario();
-				$usuario->setNome($nome);
-				$usuario->setEmail($email);
-				$usuario->setSenha($senha);
-				$usuario->setPerfil($perfil);
+				$verificacao = new usuarioController();
+				$result = $verificacao->verificaUsuario($email);
+				if($result != 1){
+					$usuario = new usuario();
+					$usuario->setNome($nome);
+					$usuario->setEmail($email);
+					$usuario->setSenha($senha);
+					$usuario->setPerfil($perfil);
 
-				if($usuario->insert()){
-					header('Location:'.VIEWS.'usuario/usuario-view.php');
+					if($usuario->insert()){
+						header('Location:'.VIEWS.'usuario/usuario-view.php?id=1');
+					}					
+				}
+				else{
+					header('Location:'.VIEWS.'usuario/usuario-view.php?id=2');
+				}				
+			}
+
+			public function verificaUsuario($email){
+				$usuario = new usuario();
+				$result = $usuario->selectEmailAll();
+				if(in_array($email, $result)){
+					return true;
+				}
+				else
+				{
+					return false;
 				}
 			}
 
@@ -41,8 +60,10 @@
 				return $usuario->selectAllOrderBy($value);
 			}
 
-
-
+			public function selectVistoriadorAll(){
+				$usuario = new usuario();
+				return $usuario->selectVistoriadores();
+			}
 
 		}
 		

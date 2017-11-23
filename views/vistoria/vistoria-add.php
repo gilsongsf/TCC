@@ -1,7 +1,15 @@
 <?php
 	require_once('../../config.php');
+  require_once('../../controllers/vistoria/vistoria-controller.php');
+  require_once('../../controllers/imovel/imovel-controller.php');
+  require_once('../../controllers/cadastro-basico/tipovistoria/tipovistoria-controller.php');
+  require_once('../../controllers/usuario/usuario-controller.php');
+
 	include(HEADER_TEMPLATE);
-?>
+
+  $tipovistoria = new tipovistoriaController();
+  $vistoriador = new usuarioController();
+?> 
 
 <div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <header>
@@ -18,15 +26,16 @@
 <hr>
 
 <thead>
-	<form method="POST" action="add.php">
+	<form method="POST" action="">
                 <div class="row">
                   <div class="form-group col-md-8">
                     <label for="recipient-name" class="control-label">Imóvel:</label>
-                    <input name="imovel" type="text" class="form-control" required>
+                    <input id="imovel" name="imovel" type="text" class="form-control" value="" required>
+                    <input id="id_imovel" name="id_imovel" type="hidden" class="form-control" value="" required>
                   </div>
                    <div class="form-group col-md-4">
                     <label for="recipient-name" class="control-label">Tipo Imóvel:</label>
-                    <input name="email" type="email" class="form-control" disabled="disable">
+                    <input id="tipoimovel" name="tipoimovel" type="text" class="form-control" disabled="disable">
                   </div>
                 </div>
                 <div class="row">
@@ -34,18 +43,24 @@
                     <label for="recipient-name" class="control-label">Vistoriador:</label>               
                     <select required="required" name="vistoriador" class="form-control" id="sel1">
                     	<option value="">Selecione</option>                    
+                    <?php foreach($vistoriador->selectVistoriadorAll() as $key => $value): ?>                     
+                      <option value="<?php echo $value->nome?>"><?php echo $value->nome ?></option>
+                    <?php endforeach; ?>      
                     </select>                    
                   </div>
                   <div class="form-group col-md-4">
                   	<label for="recipient-name" class="control-label">Tipo de Vistoria:</label>               
                     <select required="required" name="tipovistoria" class="form-control" id="sel1">
-                    	<option value="">Selecione</option>                    
+                    	<option value="">Selecione</option>   
+                    <?php foreach($tipovistoria->viewtipovistoriaAll() as $key => $value): ?>                     
+                      <option value="<?php echo $value->tipovistoria?>"><?php echo $value->tipovistoria ?></option>
+                    <?php endforeach; ?>      
                     </select>
                   </div>
                   <div class="form-group col-md-4">
                   	<label for="recipient-name" class="control-label">Data da Vistoria:</label>
-                  	<div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                  	<div class="input-group date">
+                    <input type="text" class="form-control" id="exemplo" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>

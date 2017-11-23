@@ -1,7 +1,7 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/../Crud.php'); 
+define('__TVISTORIA__', dirname(dirname(__FILE__))); 
+require_once(__TVISTORIA__.'/../Crud.php'); 
 
 class tipoVistoria extends Crud{
 	

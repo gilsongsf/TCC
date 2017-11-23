@@ -13,9 +13,9 @@
 				}
 		}
 
-		public function editImovel($id,$endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep){
+		public function editImovel($id,$endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador){
 				$imovel = new imovel();
-				$imovel->setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep);
+				$imovel->setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador);
 
 				if($imovel->update($id)){
 					header('Location:'.VIEWS.'imovel/imovel-view.php');
@@ -58,7 +58,7 @@
 
 		if(!empty($_POST['editid'])){
 			$imovel = new imovelController();
-			$imovel->editimovel($_POST['editid'],$_POST['editendereco'],$_POST['editnumero'],$_POST['editcomplemento'],$_POST['editbairro'],$_POST['editcidade'],$_POST['edituf'],$_POST['edittipoimovel'],$_POST['editcep']);
+			$imovel->editimovel($_POST['editid'],$_POST['editendereco'],$_POST['editnumero'],$_POST['editcomplemento'],$_POST['editbairro'],$_POST['editcidade'],$_POST['edituf'],$_POST['edittipoimovel'],$_POST['editcep'],$_POST['edit_id_locador']);
 		}
 
 		if(!empty($_POST['endereco'])){

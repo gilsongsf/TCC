@@ -1,27 +1,16 @@
 <?php
   require_once('../../config.php');
   require_once('../../controllers/imovel/imovel-controller.php');
-  //include(HEADER_TEMPLATE);
+  include(HEADER_TEMPLATE);
 ?>
 
 <?php 
   if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $imovel = new imovelcontroller();
-
-    foreach ($imovel->selectLocadorImovel($id) as $key => $value):
-
-      echo $value->nome;
-    exit;
-
-      endforeach;
-
+    $locador = $imovel->selectLocadorImovel($id);
   } 
 ?>
-
-<link   href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>  
 
 <div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <header>
@@ -76,15 +65,13 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label for="editcep" class="control-label">CEP:</label>
-                    <input name="editcep" type="text" class="form-control" value="<?php echo $value->cep ?>" required>
+                    <input name="editcep" type="text" class="cep form-control" value="<?php echo $value->cep ?>" required>
                   </div>
                   <input name="editid" type="hidden" value="<?php echo $value->id ?>">
-                  <?php endforeach;?>
-                  <?php foreach ($imovel->selectLocadorImovel($id) as $key => $locador):?>
                   <div class="form-group col-md-8">
                     <label for="recipient-name" class="control-label">Locador:</label>
-                    <input id="editlocador" name="editlocador" type="text" class="form-control" value="<?php echo $locador ?>">
-                    <input id="edit_id_locador" name="edit_id_locador" type="hidden" class="form-control" value="">
+                    <input id="editlocador" name="editlocador" type="text" class="form-control" value="<?php echo $locador['nome']; ?>">
+                    <input id="edit_id_locador" name="edit_id_locador" type="hidden" class="form-control" value="<?php echo $locador['id']; ?>">
                   </div>
                 </div>
                 <div class="row">

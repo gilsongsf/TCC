@@ -1,7 +1,7 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/Crud.php'); 
+define('__IMOVEL__', dirname(dirname(__FILE__))); 
+require_once(__IMOVEL__.'/Crud.php'); 
 
 class Imovel extends Crud{
 	
@@ -43,7 +43,7 @@ class Imovel extends Crud{
 
 	public function update($id){
 
-		$sql  = "UPDATE $this->table SET endereco = :endereco , numero = :numero , complemento = :complemento , bairro = :bairro , cidade = :cidade , uf = :uf , cep = :cep , tipoimovel = :tipoimovel WHERE id = :id";
+		$sql  = "UPDATE $this->table SET endereco = :endereco , numero = :numero , complemento = :complemento , bairro = :bairro , cidade = :cidade , uf = :uf , cep = :cep , tipoimovel = :tipoimovel , id_locador = :id_locador WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':endereco', $this->endereco);
 		$stmt->bindParam(':numero', $this->numero);
@@ -53,6 +53,7 @@ class Imovel extends Crud{
 		$stmt->bindParam(':uf', $this->uf);
 		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':tipoimovel', $this->tipoimovel);
+		$stmt->bindParam(':id_locador', $this->id_locador);
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 	}

@@ -1,8 +1,9 @@
 <?php
 	require_once('../../config.php');
 	require_once('../../controllers/usuario/usuario-controller.php');
-	include('usuario-modal.php'); 
+	include('usuario-modal.php');
 	include(HEADER_TEMPLATE);
+	$usuario = new UsuarioController();
 ?>
 
 
@@ -20,7 +21,22 @@
 </header>
 
 <hr>
-	<?php $usuario = new UsuarioController()?>
+<?php if (isset($_GET["id"]) AND ($_GET["id"]=="2")){?>
+      <div class="row">
+      	<div class="alert alert-danger alert-dismissable">
+  			<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  			<strong>Erro!</strong> Usuário já existe.
+		</div>
+	 </div>
+      	<?php }
+      	if(isset($_GET["id"]) AND ($_GET["id"]=="1")){?>
+      		<div class="row">
+      		<div class="alert alert-success alert-dismissable">
+  				<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  				<strong>Sucesso!</strong> Usuário criado.
+			</div>
+	 	</div>
+      	<?php } ?>
 
 <table class="table table-hover">
 <thead>

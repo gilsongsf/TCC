@@ -24,11 +24,11 @@ require_once('../../config.php');
                   </div>
                    <div class="form-group col-md-6">
                     <label for="recipient-name" class="control-label">Telefone:</label>
-                    <input name="telefone" type="text" class="form-control" required>
+                    <input name="telefone" type="text" class="phone_with_ddd form-control" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="recipient-name" class="control-label">CPF/CNPJ:</label>
-                    <input name="cpfcnpj" type="text" class="form-control" required>
+                    <input name="cpfcnpj" type="text" class="cpfcnpj form-control" required>
                   </div>
                 </div>
                 <div class="row">
@@ -88,11 +88,11 @@ require_once('../../config.php');
                   </div>
                    <div class="form-group col-md-6">
                     <label for="edittelefone" class="control-label">Telefone:</label>
-                    <input name="edittelefone" type="text" class="form-control" id="locadortelefone">
+                    <input name="edittelefone" type="text" class="phone_with_ddd form-control" id="locadortelefone">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="editcpfcnpj" class="control-label">CPF/CNPJ:</label>
-                    <input name="editcpfcnpj" type="text" class="form-control" id="locadorcpfcnpj">
+                    <input name="editcpfcnpj" type="text" class="cpfcnpj form-control" id="locadorcpfcnpj">
                   </div>
                 </div>
                 <input name="editid" type="hidden" id="id">

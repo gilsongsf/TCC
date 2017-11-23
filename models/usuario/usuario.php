@@ -1,7 +1,7 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/Crud.php'); 
+define('__USUARIO__', dirname(dirname(__FILE__))); 
+require_once(__USUARIO__.'/Crud.php'); 
 
 class Usuario extends Crud{
 	
@@ -58,6 +58,20 @@ class Usuario extends Crud{
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 
+	}
+
+	public function selectEmailAll(){
+		$sql  = "SELECT email FROM $this->table";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_COLUMN);
+	}
+
+	public function selectVistoriadores(){
+		$sql = "SELECT id, nome FROM $this->table WHERE perfil = 'vistoriador' ORDER BY nome";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll();
 	}
 
   	public static function logout() {

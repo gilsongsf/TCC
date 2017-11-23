@@ -1,6 +1,7 @@
 <?php
-	require_once("../../../config.php");
-	require_once("../../../models/cadastro-basico/tipovistoria/tipovistoria.php");
+	define('__TIPOVISTORIA__', dirname(dirname(__FILE__))); 
+	require_once(__TIPOVISTORIA__.'/../../config.php'); 
+	require_once(__TIPOVISTORIA__.'/../../models/cadastro-basico/tipovistoria/tipovistoria.php');
 
 
 		class tipovistoriaController extends tipovistoria{

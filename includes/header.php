@@ -6,38 +6,26 @@
     <title>Vistoria</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap-datetimepicker.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="<?php echo BASEURL; ?>css/sidebar.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="<?php echo BASEURL; ?>js/autocomplete.js"></script>
+    <script type="text/javascript" src="<?php echo BASEURL; ?>js/jquery.mask.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript">
-  $(document).ready(function() {
+    <link href='https://fullcalendar.io/js/fullcalendar-3.7.0/fullcalendar.min.css' rel='stylesheet' />
+    <link href='https://fullcalendar.io/js/fullcalendar-3.7.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src="https://fullcalendar.io/js/fullcalendar-3.7.0/fullcalendar.min.js"></script>
+    <script src="https://fullcalendar.io/js/fullcalendar-3.7.0/lib/jquery.min.js"></script>
+    <script src="https://fullcalendar.io/js/fullcalendar-3.7.0/lib/moment.min.js"></script>
 
-    $( "#locador" ).autocomplete({
-        minLength: 1,
-        source: 'livesearch.php',
-        focus: function( event, ui ) {
-            $( "#locador" ).val( ui.item.label );
-            return false;
-        },
-        select: function( event, ui ) {
-            $( "#locador" ).val( ui.item.label );
-            $( "#id_locador" ).val( ui.item.value );
+    <link href="<?php echo BASEURL; ?>css/bootstrap-datepicker.css" rel="stylesheet"/>
+    <script src="<?php echo BASEURL; ?>js/bootstrap-datepicker.min.js"></script> 
+    <script src="<?php echo BASEURL; ?>js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
 
-            return false;
-        }
-    })
-    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      return $( "<li>" )
-        .append( "<div>" + item.label + "</div>" )
-        .appendTo( ul );
-    };
-  });
 
-</script>
     
     <style>
         body {
