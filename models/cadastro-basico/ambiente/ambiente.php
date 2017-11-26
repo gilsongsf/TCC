@@ -1,7 +1,7 @@
 <?php
 
-define('__AMBIENTE__', dirname(dirname(__FILE__))); 
-require_once(__AMBIENTE__.'/../Crud.php'); 
+define('__AMBIENTECRUD__', dirname(dirname(__FILE__))); 
+require_once(__AMBIENTECRUD__.'/../Crud.php'); 
 
 class Ambiente extends Crud{
 	

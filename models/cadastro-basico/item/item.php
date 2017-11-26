@@ -1,7 +1,7 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/../Crud.php'); 
+define('__ITEMCRUD__', dirname(dirname(__FILE__))); 
+require_once(__ITEMCRUD__.'/../Crud.php'); 
 
 class Item extends Crud{
 	

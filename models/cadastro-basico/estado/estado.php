@@ -1,7 +1,7 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/../Crud.php'); 
+define('__ESTADOCRUD__', dirname(dirname(__FILE__))); 
+require_once(__ESTADOCRUD__.'/../Crud.php'); 
 
 class Estado extends Crud{
 	

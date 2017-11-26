@@ -1,6 +1,7 @@
 <?php
-	require_once("../../../config.php");
-	require_once("../../../models/cadastro-basico/estado/estado.php");
+	define('__ESTADO__', dirname(dirname(__FILE__))); 
+	require_once(__ESTADO__.'/../../config.php'); 
+	require_once(__ESTADO__.'/../../models/cadastro-basico/estado/estado.php');
 
 
 		class EstadoController extends estado{

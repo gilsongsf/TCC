@@ -7,6 +7,30 @@ $('#modal-delete').on('show.bs.modal', function (event) {
   modal.find('#deleteid').val(id);
 })
 
+$('#modal-delete-ambiente').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('deleteambiente');
+  var idvistoria = button.data('idvistoria');
+  
+  var modal = $(this);
+  modal.find('#deleteambiente').val(id);
+  modal.find('#idvistoria').val(idvistoria);
+})
+
+$('#modal-delete-item').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('deleteitem');
+  var idvistoria = button.data('idvistoria');
+  var idambiente = button.data('idambiente');
+  
+  var modal = $(this);
+  modal.find('#deleteitem').val(id);
+  modal.find('#idvistoria').val(idvistoria);
+  modal.find('#idambiente').val(idambiente);
+})
+
 $('#modal-edit').on('show.bs.modal', function (event) {
 				var button = $(event.relatedTarget) 
 				var recipient = button.data('id') 

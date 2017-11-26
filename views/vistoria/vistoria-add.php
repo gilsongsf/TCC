@@ -26,7 +26,7 @@
 <hr>
 
 <thead>
-	<form method="POST" action="">
+	<form method="POST" action="<?php echo CONTROLLERS; ?>vistoria/vistoria-controller.php">
                 <div class="row">
                   <div class="form-group col-md-8">
                     <label for="recipient-name" class="control-label">Imóvel:</label>
@@ -41,26 +41,26 @@
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label for="recipient-name" class="control-label">Vistoriador:</label>               
-                    <select required="required" name="vistoriador" class="form-control" id="sel1">
+                    <select required="required" name="id_vistoriador" class="form-control">
                     	<option value="">Selecione</option>                    
                     <?php foreach($vistoriador->selectVistoriadorAll() as $key => $value): ?>                     
-                      <option value="<?php echo $value->nome?>"><?php echo $value->nome ?></option>
+                      <option value="<?php echo $value->id?>"><?php echo $value->nome ?></option>
                     <?php endforeach; ?>      
                     </select>                    
                   </div>
                   <div class="form-group col-md-4">
                   	<label for="recipient-name" class="control-label">Tipo de Vistoria:</label>               
-                    <select required="required" name="tipovistoria" class="form-control" id="sel1">
+                    <select required="required" name="id_tipovistoria" class="form-control">
                     	<option value="">Selecione</option>   
                     <?php foreach($tipovistoria->viewtipovistoriaAll() as $key => $value): ?>                     
-                      <option value="<?php echo $value->tipovistoria?>"><?php echo $value->tipovistoria ?></option>
+                      <option value="<?php echo $value->id?>"><?php echo $value->tipovistoria ?></option>
                     <?php endforeach; ?>      
                     </select>
                   </div>
                   <div class="form-group col-md-4">
                   	<label for="recipient-name" class="control-label">Data da Vistoria:</label>
                   	<div class="input-group date">
-                    <input type="text" class="form-control" id="exemplo" />
+                    <input type="text" name="data_vistoria" class="form-control" id="exemplo" required>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>

@@ -1,6 +1,7 @@
 <?php
-	require_once("../../../config.php");
-	require_once("../../../models/cadastro-basico/item/item.php");
+	define('__ITEM__', dirname(dirname(__FILE__))); 
+	require_once(__ITEM__.'/../../config.php'); 
+	require_once(__ITEM__.'/../../models/cadastro-basico/item/item.php');
 
 
 		class itemController extends item{

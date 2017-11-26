@@ -1,7 +1,7 @@
 <?php
-	require_once("../../../config.php");
-	require_once("../../../models/cadastro-basico/ambiente/ambiente.php");
-
+	define('__AMBIENTE__', dirname(dirname(__FILE__))); 
+	require_once(__AMBIENTE__.'/../../config.php'); 
+	require_once(__AMBIENTE__.'/../../models/cadastro-basico/ambiente/ambiente.php');
 
 		class ambienteController extends ambiente{
 

@@ -6,8 +6,8 @@ abstract class Crud extends DB{
 
 	protected $table;
 
-	abstract public function insert();
-	abstract public function update($id);
+	//abstract public function insert();
+	//abstract public function update($id);
 
 	public function select($id){
 		$sql  = "SELECT * FROM $this->table WHERE id = :id";
