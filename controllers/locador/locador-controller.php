@@ -36,8 +36,10 @@
 				return $locador->selectAllOrderBy($value);
 			}
 
-
-
+			public function selectLocador($id_locador){
+				$locador = new locador();
+				return $locador->selectLocador($id_locador);
+			}
 
 		}
 		

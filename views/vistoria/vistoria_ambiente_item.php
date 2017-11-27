@@ -1,12 +1,13 @@
 <?php
 	require_once('../../config.php');
+  include(HEADER_TEMPLATE);
   require_once('../../controllers/vistoria/vistoria-controller.php');
   require_once('../../controllers/imovel/imovel-controller.php');
   require_once('../../controllers/cadastro-basico/estado/estado-controller.php');
   require_once('../../controllers/usuario/usuario-controller.php');
   include('vistoria-modal.php');
 
-	include(HEADER_TEMPLATE);
+	
 
   if(isset($_GET['ambiente'])){
     $id_vistoria_ambiente = $_GET['ambiente'];
@@ -19,6 +20,8 @@
 ?>
 
 
+
+
 <div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <header>
 	<div class="row">
@@ -26,62 +29,17 @@
 			<h2>Item | Vistoria</h2>
 		</div>
     <div class="col-sm-6 text-right h2">
+        <a class="btn btn-primary" data-toggle="modal" data-target="#modal-insert-item"><i class="fa fa-plus"></i> Novo Item</a>
         <a class="btn btn-default" href="inserir-ambiente.php?vistoria=<?php echo $id_vistoria?>"><i class="fa fa-refresh"></i> Voltar</a>
-        <a class="btn btn-primary" href="vistoria-view.php"><i class="fa fa-plus"></i> Concluir</a>
+        <a class="btn btn-success" href="vistoria-view.php"><i class="fa fa-plus"></i> Concluir</a>
       </div>
 	</div>
 </header>
 
-
- 
-
 <hr>
 
 <thead>
-<form method="POST" action="<?php echo CONTROLLERS; ?>vistoria/vistoria-controller.php">
-                <div class="row">
-                  <div class="form-group col-md-3">
-                    <label for="recipient-name" class="control-label">Item:</label>
-                    <input id="item" name="item" type="text" class="form-control" value="" required>
-                    <input id="id_item" name="id_item" type="hidden" class="form-control" value="" required>
-                    <input id="id_vistoria" name="id_vistoria" type="hidden" class="form-control" value="<?php echo $id_vistoria ?>">
-                    <input id="id_vistoria_ambiente" name="id_vistoria_ambiente" type="hidden" class="form-control" value="<?php echo $id_vistoria_ambiente ?>" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="recipient-name" class="control-label">Material:</label>
-                    <input id="material" name="material" type="text" class="form-control" value="">
-                    <input id="id_material" name="id_material" type="hidden" class="form-control" value="">
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="recipient-name" class="control-label">Pintura:</label>
-                    <input id="pintura" name="pintura" type="text" class="form-control" value="">
-                    <input id="id_pintura" name="id_pintura" type="hidden" class="form-control" value="">
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="recipient-name" class="control-label">Cor:</label>
-                    <input id="cor" name="cor" type="text" class="form-control" value="">
-                     <input id="id_cor" name="id_cor" type="hidden" class="form-control" value="">
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="form-group col-md-3">
-                    <label for="recipient-name" class="control-label">Estado:</label>               
-                    <select name="id_estado" class="form-control">
-                      <option value="">Selecione</option>   
-                    <?php foreach($estado->viewestadoAll() as $key => $value): ?>                     
-                      <option value="<?php echo $value->id?>"><?php echo $value->estado ?></option>
-                    <?php endforeach; ?>      
-                    </select>
-                  </div>
-                  <div class="form-group col-md-9">
-                    <label for="recipient-name" class="control-label">Complemento:</label>
-                    <input id="complemento" name="complemento" type="text" class="form-control" value="">
-                  </div>
-              </div>
-              <div class="col-md-12 text-left h2">
-                <button type="submit" class="btn btn-primary">Adicionar Item</button>
-              </div>
-              </form>
+
       
 </thead>
 <tbody> 
@@ -128,5 +86,67 @@
 </table>
 </tbody>
 </div>
+
+<div class="modal fade" id="modal-insert-item" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title text-center" id="ModalLabel">Item | Vistoria</h4>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="<?php echo CONTROLLERS; ?>vistoria/vistoria-controller.php">
+              <div class="row">
+              <div class="form-group col-md-6">
+                    <label for="recipient-name" class="control-label">Item:</label>
+                    <input id="item" name="item" type="text" class="form-control" value="" required>
+                    <input id="id_item" name="id_item" type="hidden" class="form-control" value="" required>
+                    <input id="id_vistoria" name="id_vistoria" type="hidden" class="form-control" value="<?php echo $id_vistoria ?>">
+                    <input id="id_vistoria_ambiente" name="id_vistoria_ambiente" type="hidden" class="form-control" value="<?php echo $id_vistoria_ambiente ?>" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="recipient-name" class="control-label">Material:</label>
+                    <input id="material" name="material" type="text" class="form-control" value="">
+                    <input id="id_material" name="id_material" type="hidden" class="form-control" value="">
+                  </div>
+              </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="recipient-name" class="control-label">Pintura:</label>
+                    <input id="pintura" name="pintura" type="text" class="form-control" value="">
+                    <input id="id_pintura" name="id_pintura" type="hidden" class="form-control" value="">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="recipient-name" class="control-label">Cor:</label>
+                    <input id="cor" name="cor" type="text" class="form-control" value="">
+                     <input id="id_cor" name="id_cor" type="hidden" class="form-control" value="">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="recipient-name" class="control-label">Estado:</label>               
+                    <select name="id_estado" class="form-control">
+                      <option value="">Selecione</option>   
+                    <?php foreach($estado->viewestadoAll() as $key => $value): ?>                     
+                      <option value="<?php echo $value->id?>"><?php echo $value->estado ?></option>
+                    <?php endforeach; ?>      
+                    </select>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-name" class="control-label">Complemento:</label>
+                    <input id="complemento" name="complemento" type="text" class="form-control" value="">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Adicionar Item</button>
+                    <!--<a id="confirm" class="btn btn-primary" href="#">Salvar</a>-->
+                    <a id="cancel" class="btn btn-default" data-dismiss="modal">Cancelar</a>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <?php include(FOOTER_TEMPLATE);?>

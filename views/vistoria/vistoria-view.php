@@ -13,13 +13,14 @@
 			<h2>Vistoria</h2>
 		</div>
 		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" href="vistoria-add.php"><i class="fa fa-plus"></i> Novo</a>
+	    	<a class="btn btn-primary" href="vistoria-add.php"><i class="fa fa-plus"></i> Nova Vistoria</a>
 	    	<a class="btn btn-default" href="vistoria-view.php"><i class="fa fa-refresh"></i> Atualizar</a>
 	    </div>
 	</div>
 </header>
 
 <hr>
+
 
 <table class="table table-striped table-bordered">
 <thead>
@@ -45,7 +46,7 @@
          Opções <span class="caret"></span>
          </button>
          <ul class="dropdown-menu">
-         <li><a class="dropdown-item" href="#"><span class="glyphicon glyphicon-download-alt"></span>  Download Vistoria</a></li>
+         <li><a class="dropdown-item" href="vistoria-print.php?vistoria=<?php echo $value->id_vistoria?>"><span class="glyphicon glyphicon-download-alt"></span>  Imprimir Vistoria</a></li>
          <li><a class="dropdown-item" href="inserir-ambiente.php?vistoria=<?php echo $value->id_vistoria?>"><span class="glyphicon glyphicon-edit"></span>  Editar</a></li>
          <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-delete" data-deleteid="<?php echo $value->id_vistoria ?>"><span class="glyphicon glyphicon-trash"></span>  Excluir</a></li>
          </ul>

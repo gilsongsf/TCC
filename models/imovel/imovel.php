@@ -6,9 +6,9 @@ require_once(__IMOVEL__.'/Crud.php');
 class Imovel extends Crud{
 	
 	protected $table = 'imovel';
-	private $endereco, $numero, $complemento, $bairro, $cidade, $uf, $cep, $tipoimovel, $id_locador;
+	private $endereco, $numero, $complemento, $bairro, $cidade, $uf, $cep, $tipoimovel, $id_locador, $id_inquilino;
 
-	public function setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador){
+	public function setImovel($endereco,$numero,$complemento,$bairro,$cidade,$uf,$tipoimovel,$cep,$id_locador,$id_inquilino){
 		$this->endereco = $endereco;
 		$this->numero = $numero;
 		$this->complemento = $complemento;
@@ -17,7 +17,8 @@ class Imovel extends Crud{
 		$this->uf = $uf;
 		$this->tipoimovel = $tipoimovel;
 		$this->cep = $cep;
-		$this->id_locador = $id_locador;		
+		$this->id_locador = $id_locador;
+		$this->id_inquilino = $id_inquilino;		
 	}
 
 	public function getImovel(){
@@ -26,7 +27,7 @@ class Imovel extends Crud{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (endereco, numero, complemento, bairro, cidade, uf, cep, tipoimovel, id_locador) VALUES (:endereco, :numero, :complemento, :bairro, :cidade, :uf, :cep, :tipoimovel, :id_locador)";
+		$sql  = "INSERT INTO $this->table (endereco, numero, complemento, bairro, cidade, uf, cep, tipoimovel, id_locador, id_inquilino) VALUES (:endereco, :numero, :complemento, :bairro, :cidade, :uf, :cep, :tipoimovel, :id_locador, :id_inquilino)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':endereco', $this->endereco);
 		$stmt->bindParam(':numero', $this->numero);
@@ -37,13 +38,14 @@ class Imovel extends Crud{
 		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':tipoimovel', $this->tipoimovel);
 		$stmt->bindParam(':id_locador', $this->id_locador);
+		$stmt->bindParam(':id_inquilino', $this->id_inquilino);
 		return $stmt->execute(); 
 
 	}
 
 	public function update($id){
 
-		$sql  = "UPDATE $this->table SET endereco = :endereco , numero = :numero , complemento = :complemento , bairro = :bairro , cidade = :cidade , uf = :uf , cep = :cep , tipoimovel = :tipoimovel , id_locador = :id_locador WHERE id = :id";
+		$sql  = "UPDATE $this->table SET endereco = :endereco , numero = :numero , complemento = :complemento , bairro = :bairro , cidade = :cidade , uf = :uf , cep = :cep , tipoimovel = :tipoimovel , id_locador = :id_locador , id_inquilino = :id_inquilino WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':endereco', $this->endereco);
 		$stmt->bindParam(':numero', $this->numero);
@@ -54,6 +56,7 @@ class Imovel extends Crud{
 		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':tipoimovel', $this->tipoimovel);
 		$stmt->bindParam(':id_locador', $this->id_locador);
+		$stmt->bindParam(':id_inquilino', $this->id_inquilino);
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 	}
@@ -71,5 +74,12 @@ class Imovel extends Crud{
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 
+	}
+
+	public function selectInquilinoImovel($id){
+		$sql = "SELECT inquilino.`id`, inquilino.`nome` from inquilino inner join imovel on imovel.`id_inquilino` = inquilino.`id` where imovel.`id` = ($id) order by inquilino.`nome`";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 }

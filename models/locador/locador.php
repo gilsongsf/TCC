@@ -42,5 +42,13 @@ class Locador extends Crud{
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 	}
+
+	public function selectLocador($id_locador){
+		$sql = "SELECT * FROM locador WHERE id = '$id_locador'";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+
+	}
 	
 }

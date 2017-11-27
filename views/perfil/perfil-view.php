@@ -1,8 +1,9 @@
 <?php
 	require_once('../../config.php');
 	require_once('../../controllers/perfil/perfil-controller.php');
-	include('perfil-modal.php'); 
 	include(HEADER_TEMPLATE);
+	include('perfil-modal.php'); 
+	
 ?>
  
 

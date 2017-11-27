@@ -1,11 +1,12 @@
 <?php
 	require_once('../../config.php');
+  include(HEADER_TEMPLATE);
   require_once('../../controllers/vistoria/vistoria-controller.php');
   require_once('../../controllers/imovel/imovel-controller.php');
   require_once('../../controllers/usuario/usuario-controller.php');
   require_once('../../controllers/cadastro-basico/ambiente/ambiente-controller.php');
 
-	include(HEADER_TEMPLATE);
+	
 
   if(isset($_GET['ambiente'])){
     $id_ambiente = $_GET['ambiente'];

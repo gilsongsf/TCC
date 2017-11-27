@@ -1,8 +1,8 @@
 <?php
 	require_once('../../config.php');
-	require_once('../../controllers/imovel/imovel-controller.php');
-	include('imovel-modal.php'); 
 	include(HEADER_TEMPLATE);
+	require_once('../../controllers/imovel/imovel-controller.php');
+	include('imovel-modal.php'); 	
 ?>
 
 <div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">

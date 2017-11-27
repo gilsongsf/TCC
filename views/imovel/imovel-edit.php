@@ -1,7 +1,8 @@
 <?php
   require_once('../../config.php');
-  require_once('../../controllers/imovel/imovel-controller.php');
   include(HEADER_TEMPLATE);
+  require_once('../../controllers/imovel/imovel-controller.php');
+ 
 ?>
 
 <?php 
@@ -9,6 +10,8 @@
     $id = $_GET['id'];
     $imovel = new imovelcontroller();
     $locador = $imovel->selectLocadorImovel($id);
+    $inquilino = $imovel->selectInquilinoImovel($id);
+
   } 
 ?>
 
@@ -25,7 +28,7 @@
 
 <table class="table table-hover">
 <tbody> 
-<?php foreach($imovel->selectImovel($id) as $key => $value): ?>
+<?php foreach($imovel->selectImovel($id) as $key => $value):?>
 <form method="POST" action="<?php echo CONTROLLERS; ?>imovel/imovel-controller.php">
                 <div class="row">
                   <div class="form-group col-md-12">
@@ -73,6 +76,11 @@
                     <input id="editlocador" name="editlocador" type="text" class="form-control" value="<?php echo $locador['nome']; ?>">
                     <input id="edit_id_locador" name="edit_id_locador" type="hidden" class="form-control" value="<?php echo $locador['id']; ?>">
                   </div>
+                  <div class="form-group col-md-8">
+                    <label for="recipient-name" class="control-label">Inquilino:</label>
+                    <input id="editinquilino" name="editinquilino" type="text" class="form-control" value="<?php echo $inquilino['nome']; ?>">
+                    <input id="edit_id_inquilino" name="edit_id_inquilino" type="hidden" class="form-control" value="<?php echo $inquilino['id']; ?>">
+                  </div>
                 </div>
                 <div class="row">
                   <div class="modal-footer">
@@ -100,6 +108,29 @@
         select: function( event, ui ) {
             $( "#editlocador" ).val( ui.item.label );
             $( "#edit_id_locador" ).val( ui.item.value );
+
+            return false;
+        }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( "<li>" )
+        .append( "<div>" + item.label + "</div>" )
+        .appendTo( ul );
+    };
+  });
+
+   $(document).ready(function() {
+
+    $( "#editinquilino" ).autocomplete({
+        minLength: 1,
+        source: 'livesearch-inquilino.php',
+        focus: function( event, ui ) {
+            $( "#editinquilino" ).val( ui.item.label );
+            return false;
+        },
+        select: function( event, ui ) {
+            $( "#editinquilino" ).val( ui.item.label );
+            $( "#edit_id_inquilino" ).val( ui.item.value );
 
             return false;
         }

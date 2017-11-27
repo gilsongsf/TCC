@@ -1,8 +1,8 @@
 <?php
 	require_once('../../config.php');
 	require_once('../../controllers/usuario/usuario-controller.php');
-	include('usuario-modal.php');
 	include(HEADER_TEMPLATE);
+	include('usuario-modal.php');	
 	$usuario = new UsuarioController();
 ?>
 

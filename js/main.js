@@ -31,6 +31,24 @@ $('#modal-delete-item').on('show.bs.modal', function (event) {
   modal.find('#idambiente').val(idambiente);
 })
 
+
+$('#modal-delete-foto').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('deletefoto');
+  var foto = button.data('foto');
+  var idvistoria = button.data('idvistoria');
+  var idambiente = button.data('idambiente');
+  
+  var modal = $(this);
+  modal.find('#deletefoto').val(id);
+  modal.find('#foto').val(foto);
+  modal.find('#idvistoria').val(idvistoria);
+  modal.find('#idambiente').val(idambiente);
+})
+
+
+
 $('#modal-edit').on('show.bs.modal', function (event) {
 				var button = $(event.relatedTarget) 
 				var recipient = button.data('id') 
@@ -96,6 +114,24 @@ $('#modal-edit-locador').on('show.bs.modal', function (event) {
 				modal.find('#locadorcpfcnpj').val(recipientlocadorcpfcnpj)
 
 })
+
+$('#modal-edit-inquilino').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) 
+				var recipient = button.data('id') 
+				var recipientinquilinonome = button.data('inquilinonome')
+				var recipientinquilinoemail = button.data('inquilinoemail')
+				var recipientinquilinotelefone = button.data('inquilinotelefone')
+				var recipientinquilinocpfcnpj = button.data('inquilinocpfcnpj')
+				
+				var modal = $(this)
+				modal.find('#id').val(recipient)
+				modal.find('#inquilinonome').val(recipientinquilinonome)
+				modal.find('#inquilinoemail').val(recipientinquilinoemail)
+				modal.find('#inquilinotelefone').val(recipientinquilinotelefone)
+				modal.find('#inquilinocpfcnpj').val(recipientinquilinocpfcnpj)
+
+})
+
 
 $('#modal-edit-perfil').on('show.bs.modal', function (event) {
 				var button = $(event.relatedTarget) 

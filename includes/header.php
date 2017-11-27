@@ -1,3 +1,7 @@
+<?php 
+ob_start();
+session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,19 +17,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
     <script src="<?php echo BASEURL; ?>js/autocomplete.js"></script>
     <script type="text/javascript" src="<?php echo BASEURL; ?>js/jquery.mask.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <link href='https://fullcalendar.io/js/fullcalendar-3.7.0/fullcalendar.min.css' rel='stylesheet' />
-    <link href='https://fullcalendar.io/js/fullcalendar-3.7.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-    <script src="https://fullcalendar.io/js/fullcalendar-3.7.0/fullcalendar.min.js"></script>
-    <script src="https://fullcalendar.io/js/fullcalendar-3.7.0/lib/jquery.min.js"></script>
-    <script src="https://fullcalendar.io/js/fullcalendar-3.7.0/lib/moment.min.js"></script>
+    <script src="<?php echo BASEURL;?>js/bootstrap.min.js"></script>
 
     <link href="<?php echo BASEURL; ?>css/bootstrap-datepicker.css" rel="stylesheet"/>
     <script src="<?php echo BASEURL; ?>js/bootstrap-datepicker.min.js"></script> 
     <script src="<?php echo BASEURL; ?>js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+    <link href="<?php echo BASEURL; ?>css/fullcalendar.css" rel="stylesheet" />
+    <link href="<?php echo BASEURL; ?>css/fullcalendar.print.css" rel="stylesheet" media="print" />
+    <script src="<?php echo BASEURL; ?>js/moment.min.js"></script>
+    <script src="<?php echo BASEURL; ?>js/fullcalendar.js"></script>
+    <script src="<?php echo BASEURL; ?>js/pt-br.js" charset="utf-8"></script>
 
+     <style type="text/css">
+  
+    .ui-autocomplete
+    {
+      z-index: 99999;
+    }
 
+    </style>
     
     <style>
         body {
@@ -50,11 +60,11 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">          
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções<span class="caret"></span>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nome'];?><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="<?php echo BASEURL; ?>">Alterar Senha</a></li>
-                    <li><a href="<?php echo BASEURL; ?>views/login.php">Logoff</a></li>
+                    <li><a href="<?php echo BASEURL; ?>views/logout.php">Logoff</a></li>
                 </ul>
             </li>
           </ul>
@@ -68,6 +78,7 @@
             <li class="active"><a href="<?php echo BASEURL;?>views/vistoria/vistoria-view.php">Vistoria <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo BASEURL;?>views/agenda/agenda-view.php">Agenda</a></li>
             <li><a href="<?php echo BASEURL;?>views/imovel/imovel-view.php">Imovel</a></li>
+             <li><a href="<?php echo BASEURL;?>views/inquilino/inquilino-view.php">Inquilino</a></li>
             <li><a href="<?php echo BASEURL;?>views/locador/locador-view.php">Locador</a></li>
             <li><a href="<?php echo BASEURL;?>views/usuario/usuario-view.php">Usuário</a></li>
             <li><a href="<?php echo BASEURL;?>views/perfil/perfil-view.php">Perfil</a></li>

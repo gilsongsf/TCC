@@ -6,7 +6,7 @@ abstract class Crud extends DB{
 
 	protected $table;
 
-	//abstract public function insert();
+	abstract public function insert();
 	//abstract public function update($id);
 
 	public function select($id){

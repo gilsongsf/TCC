@@ -9,9 +9,7 @@
 	$ambiente = new ambienteController();
 	$permissao = new perfil();
 
-	$perfil = 'atendente';
-
-	$permissoes = $permissao->selectPermissoes($perfil);
+	$permissoes = $permissao->selectPermissoes($_SESSION['perfil']);
 	$permissoes = unserialize($permissoes);
 
 

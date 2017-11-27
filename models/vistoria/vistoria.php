@@ -8,7 +8,8 @@ class Vistoria extends Crud{
 	protected $table = 'vistoria';
 	protected $tblVistoriaAmbiente = 'vistoria_ambiente';
 	protected $tblVistoriaAmbienteItem = 'vistoria_ambiente_item';
-	public $id_imovel, $id_vistoriador, $id_tipovistoria, $data_vistoria, $id_ambiente, $id_vistoria;
+	protected $tblVistoriaAmbienteFoto = 'vistoria_ambiente_foto';
+	public $id_imovel, $id_vistoriador, $id_tipovistoria, $data_vistoria, $id_ambiente, $id_vistoria, $foto;
 
 	public function setVistoria($id_imovel,$id_vistoriador,$id_tipovistoria,$data_vistoria){
 		$this->id_imovel = $id_imovel;
@@ -25,12 +26,17 @@ class Vistoria extends Crud{
 		$this->id_ambiente = $id_ambiente;
 	}
 
+	public function setFoto($foto){
+		$this->foto = $foto;
+	}
+
 	public function setIDVistoriaAmbiente($id_vistoria_ambiente){
 		$this->id_vistoria_ambiente = $id_vistoria_ambiente;
 	}
 
-	public function setVistoriaAmbienteItem($id_vistoria_ambiente,$id_item,$id_material,$id_pintura,$id_cor,$id_estado,$complemento){
+	public function setVistoriaAmbienteItem($id_vistoria_ambiente,$id_vistoria,$id_item,$id_material,$id_pintura,$id_cor,$id_estado,$complemento){
 		$this->id_vistoria_ambiente = $id_vistoria_ambiente;
+		$this->id_vistoria = $id_vistoria;
 		$this->id_item = $id_item;
 		$this->id_material = $id_material;
 		$this->id_pintura = $id_pintura;
@@ -52,6 +58,15 @@ class Vistoria extends Crud{
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+
+	public function deleteVistoriaAmbienteFoto($id){
+		$sql  = "DELETE FROM $this->tblVistoriaAmbienteFoto WHERE id = :id";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		return $stmt->execute(); 
+	}
+
+	
 
 	public function insert(){
 
@@ -75,7 +90,7 @@ class Vistoria extends Crud{
 	}
 
 	public function insertAmbienteVistoriaItem(){
-		$sql = "INSERT INTO vistoria_ambiente_item (id_vistoria_ambiente,id_item,id_material,id_pintura,id_cor,id_estado,complemento) VALUES (:id_vistoria_ambiente,:id_item,:id_material,:id_pintura,:id_cor,:id_estado,:complemento)";
+		$sql = "INSERT INTO $this->tblVistoriaAmbienteItem (id_vistoria_ambiente,id_vistoria,id_item,id_material,id_pintura,id_cor,id_estado,complemento) VALUES (:id_vistoria_ambiente,:id_vistoria,:id_item,:id_material,:id_pintura,:id_cor,:id_estado,:complemento)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':id_vistoria_ambiente', $this->id_vistoria_ambiente);
 		$stmt->bindParam(':id_item', $this->id_item);
@@ -84,8 +99,17 @@ class Vistoria extends Crud{
 		$stmt->bindParam(':id_cor', $this->id_cor);
 		$stmt->bindParam(':id_estado', $this->id_estado);
 		$stmt->bindParam(':complemento', $this->complemento);
+		$stmt->bindParam(':id_vistoria', $this->id_vistoria);
 		return $stmt->execute();
+	}
 
+	public function insertAmbienteVistoriaFoto(){
+		$sql = "INSERT INTO $this->tblVistoriaAmbienteFoto (foto, id_vistoria, id_vistoria_ambiente) VALUES (:foto, :id_vistoria, :id_vistoria_ambiente)";
+		$stmt = DB::prepare($sql);
+		$stmt->bindParam(':foto', $this->foto);
+		$stmt->bindParam(':id_vistoria', $this->id_vistoria);
+		$stmt->bindParam(':id_vistoria_ambiente', $this->id_vistoria_ambiente);
+		return $stmt->execute();
 	}
 
 	public function updateAmbienteVistoria($id){
@@ -101,6 +125,13 @@ class Vistoria extends Crud{
 		$stmt = DB::prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
+	}
+
+	public function selectVistoriaPrint($id_vistoria){
+		$sql = "SELECT vistoria.`id` as 'id_vistoria', imovel.*, tipovistoria.`tipovistoria`, usuario.`nome`, vistoria.`data_vistoria` FROM vistoria INNER JOIN imovel ON vistoria.`id_imovel` = imovel.`id` INNER JOIN tipovistoria ON vistoria.`id_tipovistoria` = tipovistoria.`id` INNER JOIN usuario ON vistoria.`id_vistoriador` = usuario.`id` WHERE vistoria.`id` = '$id_vistoria'";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 	public function selectLastID(){
@@ -125,6 +156,13 @@ class Vistoria extends Crud{
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		return $result;
+	}
+
+	public function selectAmbienteVistoriaFoto($id_vistoria_ambiente){
+		$sql = "SELECT * FROM vistoria_ambiente_foto WHERE id_vistoria_ambiente = '$id_vistoria_ambiente'";
+		$stmt = DB::prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll();
 	}
 
 }

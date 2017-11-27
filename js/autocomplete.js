@@ -23,6 +23,29 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
+    $( "#inquilino" ).autocomplete({
+        minLength: 1,
+        source: 'livesearch-inquilino.php',
+        focus: function( event, ui ) {
+            $( "#inquilino" ).val( ui.item.label );
+            return false;
+        },
+        select: function( event, ui ) {
+            $( "#inquilino" ).val( ui.item.label );
+            $( "#id_inquilino" ).val( ui.item.value );
+
+            return false;
+        }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( "<li>" )
+        .append( "<div>" + item.label + "</div>" )
+        .appendTo( ul );
+    };
+  });
+
+$(document).ready(function() {
+
     $( "#imovel" ).autocomplete({
         minLength: 1,
         source: 'livesearch.php',

@@ -1,11 +1,12 @@
 <?php
 	require_once('../../config.php');
+  include(HEADER_TEMPLATE);
   require_once('../../controllers/vistoria/vistoria-controller.php');
   require_once('../../controllers/imovel/imovel-controller.php');
   require_once('../../controllers/cadastro-basico/tipovistoria/tipovistoria-controller.php');
   require_once('../../controllers/usuario/usuario-controller.php');
 
-	include(HEADER_TEMPLATE);
+	
 
   $tipovistoria = new tipovistoriaController();
   $vistoriador = new usuarioController();

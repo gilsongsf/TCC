@@ -1,7 +1,8 @@
 <?php
   require_once('../../config.php');
-  require_once('../../controllers/imovel/imovel-controller.php');
   include(HEADER_TEMPLATE);
+  require_once('../../controllers/imovel/imovel-controller.php');
+  
 ?>
 
 <div class="col-sm-29 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -62,6 +63,11 @@
                     <label for="recipient-name" class="control-label">Locador:</label>
                     <input id="locador" name="locador" type="text" class="form-control" value="" required>
                     <input id="id_locador" name="id_locador" type="hidden" class="form-control" value="">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-name" class="control-label">Inquilino:</label>
+                    <input id="inquilino" name="inquilino" type="text" class="form-control" value="" required>
+                    <input id="id_inquilino" name="id_inquilino" type="hidden" class="form-control" value="">
                   </div>
                 </div>
                 <div class="row">

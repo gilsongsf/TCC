@@ -1,8 +1,9 @@
 <?php
 	require_once('../../config.php');
+	include(HEADER_TEMPLATE);
 	require_once('../../controllers/locador/locador-controller.php');
 	include('locador-modal.php'); 
-	include(HEADER_TEMPLATE);
+	
 ?>
 
 

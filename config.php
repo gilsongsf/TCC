@@ -24,6 +24,9 @@ if ( !defined('MODELS') )
 if ( !defined('CONTROLLERS') )
 	define('CONTROLLERS', '/TCC2017/vistoria/controllers/');
 
+if ( !defined('FOTOS') )
+	define('FOTOS', '/TCC2017/vistoria/controllers/vistoria/uploads/fotos_vistoria/vistoria_');
+
 /** caminho para os models **/
 if ( !defined('VIEWS') )
 	define('VIEWS', '/TCC2017/vistoria/views/');
