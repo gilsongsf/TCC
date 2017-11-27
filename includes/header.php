@@ -10,11 +10,15 @@ session_start(); ?>
     <title>Vistoria</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="<?php echo BASEURL; ?>css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="<?php echo BASEURL; ?>css/sidebar.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!--<link href="<?php echo BASEURL; ?>css/jquery-ui.min.css" rel="stylesheet">-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+    <!--<script src="<?php echo BASEURL; ?>js/jquery-3.1.1.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <!--<script src="<?php echo BASEURL; ?>js/jquery-ui.js"></script>-->
     <script src="<?php echo BASEURL; ?>js/autocomplete.js"></script>
     <script type="text/javascript" src="<?php echo BASEURL; ?>js/jquery.mask.js"></script>
     <script src="<?php echo BASEURL;?>js/bootstrap.min.js"></script>

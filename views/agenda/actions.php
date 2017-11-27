@@ -12,6 +12,8 @@ $post = $_POST['action'];
          $stmt->execute();
          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
 
+          $dataReg = substr($row['data_inicio'],0,10);
+
           $output = array( 
 	    	
 	    	'id'              => $row['id'],
@@ -19,8 +21,9 @@ $post = $_POST['action'];
 	        'id_imovel'       => $row['id_imovel'],
 	        'id_tipovistoria' => $row['id_tipovistoria'],
 	        'id_solicitante'  => $row['id_solicitante'],
-	        'data_inicio'     => $row['data_inicio'],
-	        'data_fim'        => $row['data_fim'],
+	        'data'			  => $dataReg,
+	        'data_inicio'     => substr($row['data_inicio'],11),
+	        'data_fim'        => substr($row['data_fim'],11),
 
 	    	);
 

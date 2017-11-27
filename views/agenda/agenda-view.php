@@ -78,7 +78,7 @@ $(document).ready(function(){
                     id:     <?=$row['id']?>, 
                     start: '<?=$row['data_inicio']?>',
                     end:   '<?=$row['data_fim']?>',
-                    title: '<?=$row['situacao']?>'
+                    title: '<?=$row['id_vistoriador']?>'
                },
 
             <?php } ?>
@@ -238,7 +238,7 @@ $(document).ready(function(){
             <div class="col-sm-4">
                     <div class="form-group">
                         <label for="idtitulo">Data</label>
-                        <input name="data" type="text" class="form-control" data-provide="datepicker" id="data" placeholder="Data do Cadastro" value="<?=date('d/m/Y')?>">
+                        <input name="data" type="date" class="form-control"  id="data" placeholder="Data do Cadastro">
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -309,7 +309,7 @@ $(document).ready(function(){
                 <div class="col-sm-4">
                         <div class="form-group">
                             <label for="idtitulo">Data</label>
-                            <input name="data" type="text" class="form-control" data-provide="datepicker" id="viewData" placeholder="Data do Cadastro" >
+                            <input name="data" type="date" class="form-control" id="viewData" placeholder="Data do Cadastro" >
                         </div>
                     </div>
                     <div class="col-sm-4">

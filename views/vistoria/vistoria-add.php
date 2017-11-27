@@ -61,10 +61,7 @@
                   <div class="form-group col-md-4">
                   	<label for="recipient-name" class="control-label">Data da Vistoria:</label>
                   	<div class="input-group date">
-                    <input type="text" name="data_vistoria" class="form-control" id="exemplo" required>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                    <input type="date" name="data_vistoria" class="form-control" required>
                 </div>
                   </div>
                 </div>

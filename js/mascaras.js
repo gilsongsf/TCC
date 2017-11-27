@@ -6,7 +6,7 @@
       }
     }
 
-    $('.cpfcnpj').mask('000.000.000-000', options);
+      $('.cpfcnpj').mask('000.000.000-000', options);
   		$('.time').mask('00:00:00');
   		$('.date_time').mask('99/99/9999 00:00:00');
   		$('.cep').mask('99999-999');
