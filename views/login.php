@@ -26,7 +26,7 @@ require_once('../config.php');
         <h2 class="form-signin-heading">Vistoria</h2></br>
         <label for="email" class="sr-only">Usuário</label>
         <input name="email" type="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
-        <label for="senha" class="sr-only">Senha</label>
+        <label for="senha" class="sr-only">Senha123</label>
         <input name="senha" type="password" id="senha" class="form-control" placeholder="Senha" required>
         <div class="checkbox">
         </div>
